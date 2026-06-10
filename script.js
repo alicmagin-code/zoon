@@ -392,7 +392,7 @@ function init3DGlobe() {
     let processedMapCanvas = null;
 
     const logoImg = new Image();
-    logoImg.src = 'logo/logo.jpg';
+    logoImg.src = 'logo/logo.png?v=2';
     logoImg.onload = () => {
         processedLogoCanvas = processLogoHands(logoImg);
         logoLoaded = true;
