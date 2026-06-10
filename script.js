@@ -39,7 +39,7 @@ function initTheme() {
     // Check saved theme or system preference
     const savedTheme = localStorage.getItem('zoon-theme');
     const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
+
     if (savedTheme === 'light' || (!savedTheme && !systemPrefersDark)) {
         document.body.classList.add('light-theme');
         document.body.classList.remove('dark-theme');
@@ -100,7 +100,7 @@ function initLanguage() {
                 // Default Indian English users to English (not Roman)
                 return 'english';
             }
-        } catch (e) {}
+        } catch (e) { }
 
         return 'english';
     }
@@ -108,7 +108,7 @@ function initLanguage() {
     // Translate Page function
     const translatePage = (lang) => {
         const translations = window.translations[lang] || window.translations['roman'];
-        
+
         // Update all elements with data-i18n attribute
         const elementsToTranslate = document.querySelectorAll('[data-i18n]');
         elementsToTranslate.forEach(el => {
@@ -152,7 +152,7 @@ function initLanguage() {
 
             translatePage(selectedLang);
             langDropdown.classList.remove('active');
-            
+
             showToast(`Bhasha badli gayi: ${langLabelMap[selectedLang]}`);
         });
     });
@@ -177,7 +177,7 @@ function initLanguage() {
     if (currentLangText) {
         currentLangText.textContent = langLabelMap[activeLang] || 'English';
     }
-    
+
     // Apply initial translation on load
     translatePage(activeLang);
 }
@@ -264,7 +264,7 @@ function initMobileNav() {
    ========================================================================== */
 function initScrollReveal() {
     const revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
-    
+
     const revealOnScroll = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -287,7 +287,7 @@ function initScrollReveal() {
    ========================================================================== */
 function initStatsCounter() {
     const statNums = document.querySelectorAll('.stat-num');
-    
+
     const countUp = (element) => {
         const target = +element.getAttribute('data-target');
         const suffix = element.getAttribute('data-suffix') || '';
@@ -299,7 +299,7 @@ function initStatsCounter() {
             // Ease out quad
             const easeProgress = progress * (2 - progress);
             const currentVal = Math.floor(easeProgress * target);
-            
+
             element.textContent = currentVal.toLocaleString() + suffix;
 
             if (progress < 1) {
@@ -346,7 +346,7 @@ function init3DGlobe() {
     const particleCount = 120;
     const sphereRadius = Math.min(width, height) * 0.38;
     const particles = [];
-    
+
     // Define 10 tags corresponding to logo colors and core sectors/values
     const tags = [
         { key: 'shiksha', text: 'Shiksha', phi: 0.8, theta: 1.2, x: 0, y: 0, z: 0, color: '#00d2ff' }, // Cyan
@@ -370,15 +370,15 @@ function init3DGlobe() {
 
     // Camera settings
     const fov = 400;
-    
+
     // Rotation angles
     let angleY = 0.002; // auto-spin velocity around Y
     let angleX = 0.001; // auto-spin velocity around X
-    
+
     // Drag control states
     let isDragging = false;
     let previousMousePosition = { x: 0, y: 0 };
-    
+
     // Mouse hover highlight
     let mousePos = { x: 0, y: 0 };
     let hoverDistanceThreshold = 50;
@@ -392,7 +392,7 @@ function init3DGlobe() {
     let processedMapCanvas = null;
 
     const logoImg = new Image();
-    logoImg.src = 'logo/logo.png';
+    logoImg.src = 'logo/logo.jpg';
     logoImg.onload = () => {
         processedLogoCanvas = processLogoHands(logoImg);
         logoLoaded = true;
@@ -437,8 +437,8 @@ function init3DGlobe() {
             const data = imgData.data;
             for (let i = 0; i < data.length; i += 4) {
                 const r = data[i];
-                const g = data[i+1];
-                const b = data[i+2];
+                const g = data[i + 1];
+                const b = data[i + 2];
                 // Distance to pure white
                 const distToWhite = Math.sqrt(
                     (255 - r) * (255 - r) +
@@ -446,7 +446,7 @@ function init3DGlobe() {
                     (255 - b) * (255 - b)
                 );
                 if (distToWhite < 45) {
-                    data[i+3] = Math.min(255, Math.max(0, (distToWhite - 15) * 8));
+                    data[i + 3] = Math.min(255, Math.max(0, (distToWhite - 15) * 8));
                 }
             }
             oCtx.putImageData(imgData, 0, 0);
@@ -471,11 +471,11 @@ function init3DGlobe() {
             const data = imgData.data;
             for (let i = 0; i < data.length; i += 4) {
                 const r = data[i];
-                const g = data[i+1];
-                const b = data[i+2];
+                const g = data[i + 1];
+                const b = data[i + 2];
                 const brightness = (r + g + b) / 3;
                 if (brightness < 40) {
-                    data[i+3] = Math.min(255, Math.max(0, (brightness - 20) * 5));
+                    data[i + 3] = Math.min(255, Math.max(0, (brightness - 20) * 5));
                 }
             }
             oCtx.putImageData(imgData, 0, 0);
@@ -489,7 +489,7 @@ function init3DGlobe() {
     for (let i = 0; i < particleCount; i++) {
         const phi = Math.acos(-1 + (2 * i) / particleCount);
         const theta = Math.sqrt(particleCount * Math.PI) * phi;
-        
+
         particles.push({
             x: sphereRadius * Math.sin(phi) * Math.cos(theta),
             y: sphereRadius * Math.sin(phi) * Math.sin(theta),
@@ -517,11 +517,11 @@ function init3DGlobe() {
         if (isDragging) {
             const deltaX = e.clientX - previousMousePosition.x;
             const deltaY = e.clientY - previousMousePosition.y;
-            
+
             // Adjust rotation velocity based on drag (increased sensitivity)
             angleY += deltaX * 0.0008;
             angleX += deltaY * 0.0008;
-            
+
             previousMousePosition = { x: e.clientX, y: e.clientY };
         }
     });
@@ -542,10 +542,10 @@ function init3DGlobe() {
         if (isDragging && e.touches.length === 1) {
             const deltaX = e.touches[0].clientX - previousMousePosition.x;
             const deltaY = e.touches[0].clientY - previousMousePosition.y;
-            
+
             angleY += deltaX * 0.001;
             angleX += deltaY * 0.001;
-            
+
             previousMousePosition = { x: e.touches[0].clientX, y: e.touches[0].clientY };
         }
     });
@@ -577,7 +577,7 @@ function init3DGlobe() {
         const isLightTheme = document.body.classList.contains('light-theme');
         const primaryColorStr = isLightTheme ? '31, 117, 42' : '60, 181, 76';    // Logo Green
         const secondaryColorStr = isLightTheme ? '184, 65, 12' : '243, 101, 35';  // Logo Orange
-        
+
         // Logo-themed RGB strings (0: Green, 1: Orange, 2: Red, 3: Cyan, 4: Purple)
         const colors = [
             primaryColorStr,      // Green
@@ -628,7 +628,7 @@ function init3DGlobe() {
             const scale = fov / (fov + p.z);
             const projX = p.x * scale + width / 2;
             const projY = p.y * scale + height / 2;
-            
+
             // Calculate distance to mouse pointer for mouse interaction
             const dx = projX - mousePos.x;
             const dy = projY - mousePos.y;
@@ -645,7 +645,7 @@ function init3DGlobe() {
 
             // Correct alpha transparency based on true depth (negative z is foreground, should have higher alpha)
             const alpha = Math.max(0.15, (sphereRadius - p.z) / (2 * sphereRadius));
-            
+
             // Decide color palette
             const rgb = colors[p.colorIndex] || primaryColorStr;
 
@@ -738,7 +738,7 @@ function init3DGlobe() {
         ctx.lineWidth = 0.5;
         for (let i = 0; i < backParticles.length; i++) {
             const p1 = backParticles[i];
-            
+
             // Skip connecting points that are far in the background
             if (p1.z > sphereRadius * 0.8) continue;
 
@@ -814,13 +814,13 @@ function init3DGlobe() {
         });
 
         // Outer glow rim of the globe (subtle)
-        const gradient = ctx.createRadialGradient(width/2, height/2, sphereRadius * 0.9, width/2, height/2, sphereRadius * 1.05);
+        const gradient = ctx.createRadialGradient(width / 2, height / 2, sphereRadius * 0.9, width / 2, height / 2, sphereRadius * 1.05);
         gradient.addColorStop(0, 'rgba(5, 150, 105, 0)');
         gradient.addColorStop(0.8, `rgba(${primaryColorStr}, ${isLightTheme ? '0.04' : '0.08'})`);
         gradient.addColorStop(1, 'rgba(5, 150, 105, 0)');
         ctx.fillStyle = gradient;
         ctx.beginPath();
-        ctx.arc(width/2, height/2, sphereRadius * 1.1, 0, Math.PI * 2);
+        ctx.arc(width / 2, height / 2, sphereRadius * 1.1, 0, Math.PI * 2);
         ctx.fill();
 
         // Draw 3D Tags
@@ -863,7 +863,7 @@ function init3DGlobe() {
                 const textWidth = ctx.measureText(labelText).width;
                 const paddingX = 8 * scale;
                 const paddingY = 4 * scale;
-                
+
                 const rectX = projX + 15 * scale;
                 const rectY = projY - 25 * scale;
                 const rectWidth = textWidth + paddingX * 2;
@@ -873,7 +873,7 @@ function init3DGlobe() {
                 ctx.fillStyle = isLightTheme ? 'rgba(255, 255, 255, 0.85)' : 'rgba(13, 20, 38, 0.85)';
                 ctx.strokeStyle = `${tag.color}${Math.floor(depthAlpha * 200).toString(16).padStart(2, '0')}`;
                 ctx.lineWidth = 1.5;
-                
+
                 ctx.beginPath();
                 if (typeof ctx.roundRect === 'function') {
                     ctx.roundRect(rectX, rectY, rectWidth, rectHeight, 6 * scale);
@@ -894,7 +894,7 @@ function init3DGlobe() {
 
                 // Draw Text
                 ctx.fillStyle = isLightTheme ? '#0f172a' : '#ffffff';
-                ctx.fillText(labelText, rectX + paddingX, rectY + 12 * scale + paddingY/2);
+                ctx.fillText(labelText, rectX + paddingX, rectY + 12 * scale + paddingY / 2);
             }
         });
 
@@ -910,35 +910,35 @@ function init3DGlobe() {
 function init3DTilt() {
     // Combine cards that should have a 3D tilt interaction
     const elements = document.querySelectorAll('.pillar-card, .objective-card, .leader-focus-card, .team-card');
-    
+
     // Detect mobile touch devices (we disable tilt on touchscreen to avoid jerky movements)
     if ('ontouchstart' in window || navigator.maxTouchPoints > 0) return;
 
     elements.forEach(el => {
         el.addEventListener('mousemove', (e) => {
             const rect = el.getBoundingClientRect();
-            
+
             // Mouse coordinates relative to card center
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
-            
+
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
-            
+
             // Normalize tilt values (-1 to 1)
             const percentX = (x - centerX) / centerX;
             const percentY = (y - centerY) / centerY;
-            
+
             // Maximum tilt angle (degrees)
             const maxTilt = el.classList.contains('leader-focus-card') ? 5 : 12;
-            
+
             const tiltY = percentX * maxTilt;
             const tiltX = -percentY * maxTilt; // Invert Y axis tilt
 
             // Dynamic rotation matrix
             el.style.transform = `rotateY(${tiltY.toFixed(2)}deg) rotateX(${tiltX.toFixed(2)}deg) scale(1.02)`;
             el.style.transition = 'transform 0.05s ease';
-            
+
             // Add subtle shadow offset shifts
             const shadowX = -percentX * 15;
             const shadowY = -percentY * 15;
@@ -1001,7 +1001,7 @@ function initImpactCalculator() {
             typeButtons.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
             activeType = btn.getAttribute('data-type');
-            
+
             // Adjust slider ranges based on cost
             if (activeType === 'ration') {
                 slider.min = 1;
@@ -1016,7 +1016,7 @@ function initImpactCalculator() {
                 slider.max = 100;
                 slider.value = 15;
             }
-            
+
             updateCalculator();
         });
     });
@@ -1027,17 +1027,17 @@ function initImpactCalculator() {
     function updateCalculator() {
         const units = parseInt(slider.value);
         const typeConfig = config[activeType];
-        
+
         const totalAmount = units * typeConfig.costPerUnit;
         const totalBeneficiaries = units * typeConfig.beneficiariesPerUnit;
 
         // Render values
         amtDisplay.textContent = `₹${totalAmount.toLocaleString()}`;
-        
+
         // Populate metric counters with a nice visual transition
         metricPeople.textContent = totalBeneficiaries;
         metricDuration.textContent = units;
-        
+
         // Fetch active language translations
         const currentLang = localStorage.getItem('zoon-lang') || 'roman';
         const trans = window.translations[currentLang] || window.translations['roman'];
@@ -1047,7 +1047,7 @@ function initImpactCalculator() {
         // Update label text in elements
         document.querySelector('#calc-label-people').textContent = metricName;
         document.querySelector('#calc-label-units').textContent = unitText;
-        
+
         // Update slider track background color fill
         const percent = ((slider.value - slider.min) / (slider.max - slider.min)) * 100;
         const primaryColor = document.body.classList.contains('light-theme') ? '#1f752a' : '#3cb54c';
@@ -1061,12 +1061,12 @@ function initImpactCalculator() {
             const contactSection = document.querySelector('#contact');
             if (contactSection) {
                 contactSection.scrollIntoView({ behavior: 'smooth' });
-                
+
                 // Programmatically switch tabs in forms to 'Donation Info'
                 const donationTab = document.querySelector('.form-tab-btn[data-tab="donation"]');
                 if (donationTab) {
                     donationTab.click();
-                    
+
                     // Autofill donation details in description field
                     const donationTextarea = document.getElementById('d-msg');
                     if (donationTextarea) {
@@ -1078,9 +1078,9 @@ function initImpactCalculator() {
                         const currentLang = localStorage.getItem('zoon-lang') || 'roman';
                         const trans = window.translations[currentLang] || window.translations['roman'];
                         const unitTextTranslated = trans[`calc-${activeType}-unit`] || typeConfig.unitText;
-                        
+
                         let messageTemplate = trans['calc-autofill-msg'] || "Main Zoon Charitable Trust ko {amount} ki madad (Donation) dena chahta hoon, jisse {units} {unitText} distributed honge. Kripya aage ka procedure batayein.";
-                        
+
                         // Replace placeholders in the template
                         const formattedMessage = messageTemplate
                             .replace('{amount}', `₹${totalAmount.toLocaleString()}`)
@@ -1116,12 +1116,12 @@ function initGallery() {
         btn.addEventListener('click', () => {
             filterButtons.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-            
+
             const filterValue = btn.getAttribute('data-filter');
-            
+
             galleryItems.forEach(item => {
                 const category = item.getAttribute('data-category');
-                
+
                 if (filterValue === 'all' || category === filterValue) {
                     item.style.display = 'block';
                     // Trigger entry transition
@@ -1189,9 +1189,9 @@ function initGallery() {
             lightbox.classList.remove('active');
             document.body.style.overflow = ''; // Unlock scrolling
         };
-        
+
         lightboxClose.addEventListener('click', closeLightbox);
-        
+
         lightbox.addEventListener('click', (e) => {
             if (e.target === lightbox) {
                 closeLightbox();
@@ -1256,23 +1256,23 @@ function initContactForms() {
                 const phone = document.getElementById('c-phone').value;
                 const msg = document.getElementById('c-msg').value;
                 pendingMessage = `*ZOON CHARITABLE TRUST (Z.C.T) - Website Contact Request*\n\n` +
-                                 `*Name:* ${name}\n` +
-                                 `*Phone/WhatsApp:* ${phone}\n` +
-                                 `*Message:* ${msg}`;
+                    `*Name:* ${name}\n` +
+                    `*Phone/WhatsApp:* ${phone}\n` +
+                    `*Message:* ${msg}`;
             } else if (form.id === 'volunteer-form') {
                 const name = document.getElementById('v-name').value;
                 const phone = document.getElementById('v-phone').value;
                 const city = document.getElementById('v-city').value;
                 const skill = document.getElementById('v-skill').value;
                 pendingMessage = `*ZOON CHARITABLE TRUST (Z.C.T) - Volunteer Registration*\n\n` +
-                                 `*Name:* ${name}\n` +
-                                 `*Phone/WhatsApp:* ${phone}\n` +
-                                 `*Address:* ${city}\n` +
-                                 `*Willing to help via:* ${skill}`;
+                    `*Name:* ${name}\n` +
+                    `*Phone/WhatsApp:* ${phone}\n` +
+                    `*Address:* ${city}\n` +
+                    `*Willing to help via:* ${skill}`;
             } else if (form.id === 'calc-direct-donation-form') {
                 const msg = document.getElementById('d-msg').value;
                 pendingMessage = `*ZOON CHARITABLE TRUST (Z.C.T) - Donation Details Request*\n\n` +
-                                 `*Message:* ${msg}`;
+                    `*Message:* ${msg}`;
             }
 
             // Open Modal and populate editable textarea
@@ -1281,7 +1281,7 @@ function initContactForms() {
                 modalTextarea.value = pendingMessage;
             }
             modal.classList.add('active');
-            
+
             // Add a temporary 3D perspective mouse tilt to modal card
             if (!('ontouchstart' in window || navigator.maxTouchPoints > 0)) {
                 modalContent.addEventListener('mousemove', handleModal3DTilt);
@@ -1342,7 +1342,7 @@ function initContactForms() {
                 const originalHtml = submitBtn.innerHTML;
                 submitBtn.disabled = true;
                 submitBtn.innerHTML = '<i class="fas fa-check-circle"></i> Opening App...';
-                
+
                 setTimeout(() => {
                     activeForm.reset();
                     submitBtn.disabled = false;
@@ -1360,7 +1360,7 @@ function showToast(message) {
     if (!toast) {
         toast = document.createElement('div');
         toast.className = 'toast-notification';
-        
+
         // Style toast dynamically
         Object.assign(toast.style, {
             position: 'fixed',
@@ -1382,18 +1382,18 @@ function showToast(message) {
             alignItems: 'center',
             gap: '0.75rem'
         });
-        
+
         document.body.appendChild(toast);
     }
-    
+
     toast.innerHTML = `<i class="fas fa-check-circle" style="font-size: 1.2rem;"></i> ${message}`;
-    
+
     // Animate In
     setTimeout(() => {
         toast.style.opacity = '1';
         toast.style.transform = 'translateY(0)';
     }, 100);
-    
+
     // Animate Out
     setTimeout(() => {
         toast.style.opacity = '0';
@@ -1409,7 +1409,7 @@ function initDocModal() {
     const modalTitle = document.getElementById('doc-modal-title');
     const modalBody = document.getElementById('doc-modal-body');
     const closeBtn = document.querySelector('.doc-modal-close');
-    
+
     if (!modal || !modalTitle || !modalBody) return;
 
     const links = {
@@ -1417,7 +1417,7 @@ function initDocModal() {
         'foot-terms': { titleKey: 'foot-terms', bodyKey: 'doc-terms-body' },
         'foot-audits': { titleKey: 'foot-audits', bodyKey: 'doc-audits-body' }
     };
-    
+
     // Attach click listeners to footer links
     Object.keys(links).forEach(key => {
         const el = document.querySelector(`[data-i18n="${key}"]`);
@@ -1426,29 +1426,29 @@ function initDocModal() {
                 e.preventDefault();
                 const currentLang = localStorage.getItem('zoon-lang') || 'roman';
                 const trans = window.translations[currentLang] || window.translations['roman'];
-                
+
                 const titleText = trans[links[key].titleKey] || el.textContent;
                 const bodyText = trans[links[key].bodyKey] || "Content loading...";
-                
+
                 modalTitle.textContent = titleText;
                 modalBody.innerHTML = bodyText;
-                
+
                 modal.classList.add('active');
             });
         }
     });
-    
+
     if (closeBtn) {
         closeBtn.addEventListener('click', () => {
             modal.classList.remove('active');
         });
-        
+
         modal.addEventListener('click', (e) => {
             if (e.target === modal) {
                 modal.classList.remove('active');
             }
         });
-        
+
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && modal.classList.contains('active')) {
                 modal.classList.remove('active');
