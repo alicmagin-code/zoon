@@ -2460,6 +2460,7 @@ body.light-theme .footer-bottom {
     
     .j-stat-item {
         flex-direction: column;
+        align-items: center;
         text-align: center;
     }
     
@@ -2589,6 +2590,27 @@ body.light-theme .footer-bottom {
         gap: 1rem;
         text-align: center;
     }
+    
+    /* Document Modal Responsive */
+    .doc-modal-content {
+        padding: 2rem 1.5rem;
+        max-height: 85vh;
+    }
+    
+    .doc-modal-close {
+        top: 1rem;
+        right: 1.25rem;
+        font-size: 1.8rem;
+    }
+    
+    .doc-modal-title {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+    }
+    
+    .journey-milestone {
+        font-size: 1.4rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -2632,6 +2654,47 @@ body.light-theme .footer-bottom {
     .journey-stats-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
+    }
+    
+    /* Document & Channel Modal Mobile */
+    .doc-modal-content {
+        width: 95%;
+        padding: 1.5rem 1rem;
+    }
+    
+    .doc-modal-title {
+        font-size: 1.2rem;
+    }
+    
+    .doc-modal-body {
+        font-size: 0.85rem;
+        gap: 1rem;
+    }
+    
+    .channel-modal-content {
+        padding: 1.75rem 1.25rem;
+        width: 95%;
+    }
+    
+    .channel-modal-title {
+        font-size: 1.3rem;
+    }
+    
+    .channel-modal-desc {
+        font-size: 0.8rem;
+        margin-bottom: 1rem;
+    }
+    
+    .channel-modal-textarea-wrap label {
+        font-size: 0.7rem;
+    }
+    
+    .journey-milestone {
+        font-size: 1.2rem;
+    }
+    
+    .j-stat-num {
+        font-size: 2rem;
     }
 }
 
