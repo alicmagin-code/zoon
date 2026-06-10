@@ -306,12 +306,14 @@ body.light-theme header.scrolled {
 }
 
 .logo-img {
-    width: 48px;
-    height: 48px;
-    border-radius: var(--radius-sm);
+    width: 80px;
+    height: 80px;
     object-fit: contain;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    background: #fff;
+    transition: transform var(--transition-fast);
+}
+
+.logo-img:hover {
+    transform: scale(1.05);
 }
 
 /* Language Switcher Selector */
@@ -2472,6 +2474,11 @@ body.light-theme .footer-bottom {
 @media (max-width: 768px) {
     header {
         padding: 0.8rem 5%;
+    }
+    
+    .logo-img {
+        width: 64px;
+        height: 64px;
     }
     
     /* Hamburger navigation */

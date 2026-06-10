@@ -417,42 +417,19 @@ function init3DGlobe() {
         oCtx.arc(size / 2, size / 2, size / 2 - 2, 0, Math.PI * 2);
         oCtx.clip();
 
-        // Crop the central holding hands from logo.jpg (original size 900x900, crop size 460)
-        const cropSize = 460;
+        // Draw the entire logo.png which is already cropped to the hands monogram
         oCtx.drawImage(
             img,
-            img.width / 2 - cropSize / 2,
-            img.height / 2 - cropSize / 2,
-            cropSize,
-            cropSize,
+            0,
+            0,
+            img.width,
+            img.height,
             0,
             0,
             size,
             size
         );
 
-        // Make white background transparent
-        try {
-            const imgData = oCtx.getImageData(0, 0, size, size);
-            const data = imgData.data;
-            for (let i = 0; i < data.length; i += 4) {
-                const r = data[i];
-                const g = data[i + 1];
-                const b = data[i + 2];
-                // Distance to pure white
-                const distToWhite = Math.sqrt(
-                    (255 - r) * (255 - r) +
-                    (255 - g) * (255 - g) +
-                    (255 - b) * (255 - b)
-                );
-                if (distToWhite < 45) {
-                    data[i + 3] = Math.min(255, Math.max(0, (distToWhite - 15) * 8));
-                }
-            }
-            oCtx.putImageData(imgData, 0, 0);
-        } catch (e) {
-            console.error("Failed to key out white pixels", e);
-        }
         return offCanvas;
     }
 
