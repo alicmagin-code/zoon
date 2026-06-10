@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initSubsystem('Gallery', initGallery);
     initSubsystem('FormTabs', initFormTabs);
     initSubsystem('ContactForms', initContactForms);
+    initSubsystem('DocModal', initDocModal);
 });
 
 /* ==========================================================================
@@ -1274,7 +1275,11 @@ function initContactForms() {
                                  `*Message:* ${msg}`;
             }
 
-            // Open Modal
+            // Open Modal and populate editable textarea
+            const modalTextarea = document.getElementById('modal-message-edit');
+            if (modalTextarea) {
+                modalTextarea.value = pendingMessage;
+            }
             modal.classList.add('active');
             
             // Add a temporary 3D perspective mouse tilt to modal card
@@ -1302,21 +1307,29 @@ function initContactForms() {
 
     btnCancel.addEventListener('click', closeModal);
 
+    const getFinalMessage = () => {
+        const modalTextarea = document.getElementById('modal-message-edit');
+        return modalTextarea ? modalTextarea.value : pendingMessage;
+    };
+
     btnWhatsapp.addEventListener('click', () => {
-        const url = `https://wa.me/919795371007?text=${encodeURIComponent(pendingMessage)}`;
+        const msgText = getFinalMessage();
+        const url = `https://wa.me/919795371007?text=${encodeURIComponent(msgText)}`;
         window.open(url, '_blank');
         finishFormSubmission();
     });
 
     btnTelegram.addEventListener('click', () => {
         // Share text and link on telegram
-        const url = `https://t.me/share/url?url=https://www.facebook.com/zctbillionin1&text=${encodeURIComponent(pendingMessage)}`;
+        const msgText = getFinalMessage();
+        const url = `https://t.me/share/url?url=https://www.facebook.com/zctbillionin1&text=${encodeURIComponent(msgText)}`;
         window.open(url, '_blank');
         finishFormSubmission();
     });
 
     btnEmail.addEventListener('click', () => {
-        const mailtoLink = `mailto:zoontrust@gmail.com?subject=Zoon%20Trust%20Website%20Message&body=${encodeURIComponent(pendingMessage)}`;
+        const msgText = getFinalMessage();
+        const mailtoLink = `mailto:zooncharitabletrust@gmail.com?subject=Zoon%20Trust%20Website%20Message&body=${encodeURIComponent(msgText)}`;
         window.location.href = mailtoLink;
         finishFormSubmission();
     });
@@ -1387,3 +1400,60 @@ function showToast(message) {
         toast.style.transform = 'translateY(20px)';
     }, 4000);
 }
+
+/* ==========================================================================
+   11. Interactive Policy & Document Modal Viewer
+   ========================================================================== */
+function initDocModal() {
+    const modal = document.getElementById('document-modal');
+    const modalTitle = document.getElementById('doc-modal-title');
+    const modalBody = document.getElementById('doc-modal-body');
+    const closeBtn = document.querySelector('.doc-modal-close');
+    
+    if (!modal || !modalTitle || !modalBody) return;
+
+    const links = {
+        'foot-privacy': { titleKey: 'foot-privacy', bodyKey: 'doc-privacy-body' },
+        'foot-terms': { titleKey: 'foot-terms', bodyKey: 'doc-terms-body' },
+        'foot-audits': { titleKey: 'foot-audits', bodyKey: 'doc-audits-body' }
+    };
+    
+    // Attach click listeners to footer links
+    Object.keys(links).forEach(key => {
+        const el = document.querySelector(`[data-i18n="${key}"]`);
+        if (el) {
+            el.addEventListener('click', (e) => {
+                e.preventDefault();
+                const currentLang = localStorage.getItem('zoon-lang') || 'roman';
+                const trans = window.translations[currentLang] || window.translations['roman'];
+                
+                const titleText = trans[links[key].titleKey] || el.textContent;
+                const bodyText = trans[links[key].bodyKey] || "Content loading...";
+                
+                modalTitle.textContent = titleText;
+                modalBody.innerHTML = bodyText;
+                
+                modal.classList.add('active');
+            });
+        }
+    });
+    
+    if (closeBtn) {
+        closeBtn.addEventListener('click', () => {
+            modal.classList.remove('active');
+        });
+        
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+        
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                modal.classList.remove('active');
+            }
+        });
+    }
+}
+

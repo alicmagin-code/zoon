@@ -158,6 +158,42 @@
         </div>
     </section>
 
+    <!-- Our Journey Section -->
+    <section id="journey" class="section-padding journey-section">
+        <div class="journey-container">
+            <div class="journey-content reveal-left">
+                <span class="section-subtitle" data-i18n="journey-sub">Hamara Safar</span>
+                <h2 class="section-title" data-i18n="journey-title">Our <span class="accent">Journey</span></h2>
+                <h4 class="journey-milestone" data-i18n="journey-subtitle">5 Members to 7 States</h4>
+                <p class="section-desc" data-i18n="journey-desc">
+                    Ye safar hum 5 logon ne milkar shuru kiya tha. Is samay hum lagbhag 07 rajyon mein kaam kar rahe hain. Har zarooratmand ka sapna saakaar hoga aur samaj kalyan ke saath hi ek naye samaj ka nirman bhi hoga.
+                </p>
+                <div class="journey-stats-grid">
+                    <div class="j-stat-item">
+                        <i class="fas fa-users-line"></i>
+                        <div>
+                            <span class="j-stat-num">5</span>
+                            <span class="j-stat-lbl" data-i18n="journey-stat-founders">Founding Members</span>
+                        </div>
+                    </div>
+                    <div class="j-stat-item">
+                        <i class="fas fa-map-location-dot"></i>
+                        <div>
+                            <span class="j-stat-num">7+</span>
+                            <span class="j-stat-lbl" data-i18n="journey-stat-states">Active States</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="journey-visual reveal-right">
+                <div class="journey-img-wrapper">
+                    <img src="./Activities/zoon-dream-universe.png" alt="Zoon Trust Dream Universe Map" class="journey-img">
+                    <div class="journey-img-glow"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Core Pillars Section -->
     <section id="pillars" class="section-padding">
         <div class="section-header reveal">
@@ -534,6 +570,33 @@
                 </div>
             </div>
 
+            <!-- Team Collage -->
+            <div class="gallery-item" data-category="office">
+                <img src="./Activities/team-collage.jpg" alt="ZCT Executive Board & Working Committee Collage">
+                <div class="gallery-overlay">
+                    <span class="gallery-tag">Team Collage</span>
+                    <span class="gallery-caption" data-i18n="cap-team-collage">Hamari Team Ki Ek Jhalak - Board & Committee Members</span>
+                </div>
+            </div>
+
+            <!-- Punjab Relief & Women Wing -->
+            <div class="gallery-item" data-category="welfare">
+                <img src="./Activities/punjab-flood-relief-and-women-wing.png" alt="Punjab Flood Relief & Women Wing Officials">
+                <div class="gallery-overlay">
+                    <span class="gallery-tag">Welfare & Relief</span>
+                    <span class="gallery-caption" data-i18n="cap-punjab-relief">Punjab Flood Relief Support (₹51,000) & Women's Wing Leadership</span>
+                </div>
+            </div>
+
+            <!-- Patrons Meeting -->
+            <div class="gallery-item" data-category="office">
+                <img src="./Activities/team-patrons-and-meeting.png" alt="ZCT Patrons Mohammad Jabir Azmi and Ajay Kumar Mishra">
+                <div class="gallery-overlay">
+                    <span class="gallery-tag">HQ & Patrons</span>
+                    <span class="gallery-caption" data-i18n="cap-patrons-meeting">Mohammad Jabir Azmi and Ajay Kumar Mishra at National Office</span>
+                </div>
+            </div>
+
             <!-- Medical Campaign -->
             <div class="gallery-item" data-category="health">
                 <img src="./Activities/medical-campaign.jpg" alt="ZCT Free Medical Camp">
@@ -890,6 +953,11 @@
                             <i class="fab fa-facebook" style="margin-right:0.25rem;"></i> Followed by 2,290+ on Facebook &bull; "We Work For Humanity"
                         </span>
                     </div>
+
+                    <!-- Helpline Banner Visual -->
+                    <div style="margin-top: 1.5rem; border-radius: var(--radius-md); overflow: hidden; border: 1px solid var(--border-glow); box-shadow: var(--shadow-sm);">
+                        <img src="./Activities/helpline-contact-banner.png" alt="ZCT Contact Helpline Info" style="width: 100%; height: auto; display: block; background: #fff; padding: 5px;">
+                    </div>
                 </div>
             </div>
 
@@ -1079,6 +1147,17 @@
         </div>
     </footer>
 
+    <!-- Document Modal (Privacy, Terms, Audits) -->
+    <div class="document-modal" id="document-modal">
+        <div class="doc-modal-content">
+            <button class="doc-modal-close" aria-label="Close Document Modal">&times;</button>
+            <h3 class="doc-modal-title" id="doc-modal-title">Document Title</h3>
+            <div class="doc-modal-body" id="doc-modal-body">
+                <!-- Injected dynamically -->
+            </div>
+        </div>
+    </div>
+
     <!-- 3D Lightbox Modal -->
     <div class="lightbox">
         <div class="lightbox-content">
@@ -1093,6 +1172,10 @@
         <div class="channel-modal-content" id="channel-modal-content">
             <h3 class="channel-modal-title" data-i18n="mod-title">Send Message</h3>
             <p class="channel-modal-desc" data-i18n="mod-desc">Aap apna sandesh kis madhyam se bhejna chahte hain?</p>
+            <div class="channel-modal-textarea-wrap">
+                <label for="modal-message-edit" data-i18n="mod-review-lbl">Review / Edit Message</label>
+                <textarea id="modal-message-edit" class="channel-modal-textarea" placeholder="Aapka sandesh..."></textarea>
+            </div>
             <div class="channel-btns-grid">
                 <button class="channel-btn btn-channel-whatsapp" id="btn-send-whatsapp" data-i18n="mod-btn-wa">
                     <i class="fab fa-whatsapp"></i> WhatsApp Direct

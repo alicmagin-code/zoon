@@ -223,10 +223,14 @@ window.translations = {
         "foot-privacy": "Privacy Policy",
         "foot-terms": "Terms of Use",
         "foot-audits": "HQ Audits",
+        "doc-privacy-body": "<h4>1. Data Collection (Jankari Ikattha Karna)</h4><p>Zoon Charitable Trust (ZCT) website par jab aap contact or volunteer form bharte hain, tab hum aapka naam, phone number aur address collect karte hain taaki hum aapse contact kar sakein aur madad kar sakein.</p><h4>2. Data Security (Suraksha)</h4><p>Hum aapki personal details ko bilkul surakshit (secure) rakhte hain. Hum aapka data kisi bhi teesre (third) party ko share ya sell nahi karte hain.</p><h4>3. Cookies</h4><p>Hum website experience ko behtar banane ke liye basic cookies use karte hain.</p>",
+        "doc-terms-body": "<h4>1. Website Usage (Upyog)</h4><p>ZCT website ka upyog sirf samajik kalyan, donation information aur volunteer registration ke uddeshya se kiya ja sakta hai.</p><h4>2. Donations (Madad)</h4><p>Zoon Trust ko di gayi madad (donation) puri tarah se voluntary (swachhik) hai aur iska upyog gareeb bachon ki shiksha, medical checkups aur flood relief ke liye kiya jata hai.</p><h4>3. Content Copyright</h4><p>Website par available photos and text ZCT ki property hain aur inka unauthorized use mana hai.</p>",
+        "doc-audits-body": "<h4>1. Trust Registration (Panchikaran)</h4><p>Zoon Charitable Trust ek Govt. Registered NGO hai (Reg No: 04-63-025). Hum statutory trust guidelines ke according har saal financial audits karate hain.</p><h4>2. Accounts and Audit</h4><p>Humare accounts standard chartered accountants dwara audit kiye jaate hain. Aap hamare objectives aur registration details ki copy <a href='./Activities/zoon-objectives.pdf' target='_blank' style='color:var(--color-primary-light); text-decoration:underline;'>Official Objectives PDF</a> se download kar sakte hain.</p><h4>3. Verification (Satyaapan)</h4><p>Kisi bhi financial transaction ya relief distribution verification ke liye aap direct humare WhatsApp number 9795371007 par contact kar sakte hain.</p>",
 
         // Modal
         "mod-title": "Send Message",
         "mod-desc": "Aap apna sandesh kis madhyam se bhejna chahte hain?",
+        "mod-review-lbl": "Review / Edit Message",
         "mod-btn-wa": "<i class=\"fab fa-whatsapp\"></i> WhatsApp Direct",
         "mod-btn-tg": "<i class=\"fab fa-telegram\"></i> Telegram Chat",
         "mod-btn-em": "<i class=\"fas fa-envelope\"></i> Email (Mailto)",
@@ -234,7 +238,20 @@ window.translations = {
 
         // Appending text
         "cert-pending": "Appointment Card Pending",
-        "cert-view": "Click to View Certificate"
+        "cert-view": "Click to View Certificate",
+
+        // Journey
+        "journey-sub": "Hamara Safar",
+        "journey-title": "Our <span class=\"accent\">Journey</span>",
+        "journey-subtitle": "5 Sadasyon se 7 Rajyon Tak",
+        "journey-desc": "Ye safar hum 5 logon ne milkar shuru kiya tha. Is samay hum lagbhag 07 rajyon mein kaam kar rahe hain. Har zarooratmand ka sapna saakaar hoga aur samaj kalyan ke saath hi ek naye samaj ka nirman bhi hoga.",
+        "journey-stat-founders": "Founding Members",
+        "journey-stat-states": "Active States",
+
+        // New captions
+        "cap-team-collage": "Hamari Team Ki Ek Jhalak - Board & Committee Members",
+        "cap-punjab-relief": "Punjab Flood Relief Support (₹51,000) & Women's Wing Leadership",
+        "cap-patrons-meeting": "National Patrons Mohammad Jabir Azmi and Ajay Kumar Mishra at Zoon Office"
     },
     hindi: {
         // Navigation
@@ -455,10 +472,14 @@ window.translations = {
         "foot-privacy": "गोपनीयता नीति",
         "foot-terms": "उपयोग की शर्तें",
         "foot-audits": "मुख्यालय ऑडिट",
+        "doc-privacy-body": "<h4>1. डेटा संग्रह</h4><p>ज़ून चैरिटेबल ट्रस्ट (ZCT) वेबसाइट पर जब आप संपर्क या स्वयंसेवक फॉर्म भरते हैं, तो हम आपका नाम, फोन नंबर और पता एकत्र करते हैं ताकि हम आपसे संपर्क कर सकें और आपकी सहायता कर सकें।</p><h4>2. डेटा सुरक्षा</h4><p>हम आपकी व्यक्तिगत जानकारी को पूरी तरह सुरक्षित रखते हैं। हम आपका डेटा किसी भी तीसरे पक्ष (third party) के साथ साझा या विक्रय नहीं करते हैं।</p><h4>3. कुकीज़</h4><p>हम वेबसाइट के अनुभव को बेहतर बनाने के लिए बुनियादी कुकीज़ का उपयोग करते हैं।</p>",
+        "doc-terms-body": "<h4>1. वेबसाइट का उपयोग</h4><p>ZCT वेबसाइट का उपयोग केवल सामाजिक कल्याण, दान की जानकारी और स्वयंसेवक पंजीकरण के उद्देश्यों के लिए किया जा सकता है।</p><h4>2. दान (Donations)</h4><p>ज़ून ट्रस्ट को दिया गया दान पूरी तरह से स्वैच्छिक है और इसका उपयोग गरीब बच्चों की शिक्षा, चिकित्सा शिविरों और बाढ़ राहत के लिए किया जाता है।</p><h4>3. सामग्री कॉपीराइट</h4><p>वेबसाइट पर उपलब्ध तस्वीरें और पाठ ZCT की संपत्ति हैं और इनका अनधिकृत उपयोग प्रतिबंधित है।</p>",
+        "doc-audits-body": "<h4>1. ट्रस्ट पंजीकरण</h4><p>ज़ून चैरिटेबल ट्रस्ट एक सरकारी पंजीकृत एनजीओ है (पंजीकरण संख्या: 04-63-025)। हम वैधानिक ट्रस्ट दिशानिर्देशों के अनुसार हर साल वित्तीय ऑडिट कराते हैं।</p><h4>2. खाते और ऑडिट</h4><p>हमारे खातों का ऑडिट चार्टर्ड अकाउंटेंट्स द्वारा किया जाता है। आप हमारे उद्देश्यों और पंजीकरण विवरण की प्रति <a href='./Activities/zoon-objectives.pdf' target='_blank' style='color:var(--color-primary-light); text-decoration:underline;'>आधिकारिक उद्देश्य पीडीएफ</a> से डाउनलोड कर सकते हैं।</p><h4>3. सत्यापन</h4><p>किसी भी वित्तीय लेनदेन या राहत वितरण सत्यापन के लिए आप सीधे हमारे व्हाट्सएप नंबर 9795371007 पर संपर्क कर सकते हैं।</p>",
 
         // Modal
         "mod-title": "संदेश भेजें",
         "mod-desc": "आप अपना संदेश किस माध्यम से भेजना चाहते हैं?",
+        "mod-review-lbl": "संदेश की समीक्षा करें / बदलें",
         "mod-btn-wa": "<i class=\"fab fa-whatsapp\"></i> व्हाट्सएप डायरेक्ट",
         "mod-btn-tg": "<i class=\"fab fa-telegram\"></i> टेलीग्राम साझा",
         "mod-btn-em": "<i class=\"fas fa-envelope\"></i> ईमेल (Mailto)",
@@ -466,7 +487,20 @@ window.translations = {
 
         // Appending text
         "cert-pending": "नियुक्ति पत्र लंबित",
-        "cert-view": "प्रशस्ति पत्र देखने के लिए क्लिक करें"
+        "cert-view": "प्रशस्ति पत्र देखने के लिए क्लिक करें",
+
+        // Journey
+        "journey-sub": "हमारा सफ़र",
+        "journey-title": "हमारा <span class=\"accent\">सफ़र</span>",
+        "journey-subtitle": "5 सदस्यों से 7 राज्यों तक",
+        "journey-desc": "यह सफ़र हम 5 लोगों ने मिलकर शुरू किया था। इस समय हम लगभग 07 राज्यों में काम कर रहे हैं। हर ज़रूरतमंद का सपना साकार होगा और समाज कल्याण के साथ ही एक नए समाज का निर्माण भी होगा।",
+        "journey-stat-founders": "संस्थापक सदस्य",
+        "journey-stat-states": "सक्रिय राज्य",
+
+        // New captions
+        "cap-team-collage": "हमारी टीम की एक झलक - बोर्ड और समिति के सदस्य",
+        "cap-punjab-relief": "पंजाब बाढ़ राहत सहायता (₹51,000) और महिला विंग नेतृत्व",
+        "cap-patrons-meeting": "राष्ट्रीय संरक्षक मोहम्मद जाबिर आज़मी और अजय कुमार मिश्र ज़ून कार्यालय में"
     },
     english: {
         // Navigation
@@ -687,10 +721,14 @@ window.translations = {
         "foot-privacy": "Privacy Policy",
         "foot-terms": "Terms of Use",
         "foot-audits": "HQ Audits",
+        "doc-privacy-body": "<h4>1. Data Collection</h4><p>When you fill out the contact or volunteer forms on the Zoon Charitable Trust (ZCT) website, we collect your name, phone number, and address to respond to your requests and facilitate support.</p><h4>2. Data Security</h4><p>We are committed to keeping your personal details secure. We do not sell, trade, or share your data with any third parties.</p><h4>3. Cookies</h4><p>We use basic cookies to enhance your browsing experience on our website.</p>",
+        "doc-terms-body": "<h4>1. Website Usage</h4><p>The Zoon Charitable Trust website may only be used for social welfare activities, obtaining donation information, and volunteer registration purposes.</p><h4>2. Donations</h4><p>All donations made to Zoon Charitable Trust are purely voluntary and are utilized for underprivileged children's education, medical camps, and flood relief efforts.</p><h4>3. Content Copyright</h4><p>All photos, media, and text available on this website are the property of ZCT. Unauthorized use or reproduction is strictly prohibited.</p>",
+        "doc-audits-body": "<h4>1. Trust Registration</h4><p>Zoon Charitable Trust is a Government Registered NGO (Reg No: 04-63-025). We conduct financial audits every year in accordance with statutory guidelines.</p><h4>2. Accounts and Audit</h4><p>Our financial accounts are audited annually by certified chartered accountants. You can download a copy of our registration and official objectives from the <a href='./Activities/zoon-objectives.pdf' target='_blank' style='color:var(--color-primary-light); text-decoration:underline;'>Official Objectives PDF</a>.</p><h4>3. Verification</h4><p>For any inquiries regarding financial transactions or relief distribution verification, you can contact us directly on our WhatsApp helpline: 9795371007.</p>",
 
         // Modal
         "mod-title": "Choose Channel",
         "mod-desc": "Which method would you like to use to send the request?",
+        "mod-review-lbl": "Review / Edit Message",
         "mod-btn-wa": "<i class=\"fab fa-whatsapp\"></i> WhatsApp Direct",
         "mod-btn-tg": "<i class=\"fab fa-telegram\"></i> Telegram Share",
         "mod-btn-em": "<i class=\"fas fa-envelope\"></i> Email Support (Mailto)",
@@ -698,7 +736,20 @@ window.translations = {
 
         // Appending text
         "cert-pending": "Appointment Card Pending",
-        "cert-view": "Click to View Certificate"
+        "cert-view": "Click to View Certificate",
+
+        // Journey
+        "journey-sub": "Our Journey",
+        "journey-title": "Our <span class=\"accent\">Journey</span>",
+        "journey-subtitle": "From 5 Members to 7 States",
+        "journey-desc": "We started this journey with just 5 members. Today, Zoon Charitable Trust is actively working in about 7 states across the nation. Every needy person's dream will be realized, and alongside social welfare, a new society will be built.",
+        "journey-stat-founders": "Founding Members",
+        "journey-stat-states": "Active States",
+
+        // New captions
+        "cap-team-collage": "A glimpse of our team - Board & Committee Members",
+        "cap-punjab-relief": "Punjab Flood Relief Support (₹51,000) & Women's Wing Leadership",
+        "cap-patrons-meeting": "National Patrons Mohammad Jabir Azmi and Ajay Kumar Mishra at Zoon Office"
     },
     marathi: {
         // Navigation
@@ -919,10 +970,14 @@ window.translations = {
         "foot-privacy": "गोपनीयता धोरण",
         "foot-terms": "वापराच्या अटी",
         "foot-audits": "मुख्यालय ऑडिट",
+        "doc-privacy-body": "<h4>१. डेटा संग्रह</h4><p>जेव्हा तुम्ही झून चॅरिटेबल ट्रस्ट (ZCT) वेबसाइटवर संपर्क किंवा स्वयंसेवक फॉर्म भरता, तेव्हा आम्ही तुमचे नाव, यासोबतच फोन नंबर आणि पत्ता गोळा करतो जेणेकरून आम्ही तुमच्याशी संपर्क साधू शकू.</p><h4>२. डेटा सुरक्षा</h4><p>आम्ही तुमची वैयक्तिक माहिती पूर्णपणे सुरक्षित ठेवतो. आम्ही तुमचा डेटा कोणत्याही तिसऱ्या पक्षासोबत सामायिक किंवा विक्री करत नाही.</p><h4>३. कुकीज</h4><p>आम्ही वेबसाइटचा वापरकर्ता अनुभव सुधारण्यासाठी मूलभूत कुकीज वापरतो.</p>",
+        "doc-terms-body": "<h4>१. वेबसाइट वापर</h4><p>ZCT वेबसाइटचा वापर केवळ समाजकल्याण, देणगीची माहिती आणि स्वयंसेवक नोंदणीच्या उद्देशाने केला जाऊ शकतो.</p><h4>२. देणग्या (Donations)</h4><p>झून ट्रस्टला दिलेली देणगी पूर्णपणे ऐच्छिक आहे आणि तिचा वापर गरीब मुलांचे शिक्षण, वैद्यकीय शिबिरे आणि पूरग्रस्तांच्या मदतीसाठी केला जातो.</p><h4>३. कॉपीराइट</h4><p>वेबसाइटवरील सर्व चित्रे आणि मजकूर ZCT च्या मालकीचे आहेत आणि त्यांचा अनधिकृत वापर प्रतिबंधित आहे.</p>",
+        "doc-audits-body": "<h4>१. ट्रस्ट नोंदणी</h4><p>झून चॅरिटेबल ट्रस्ट ही एक सरकारी नोंदणीकृत एनजीओ आहे (नोंदणी क्रमांक: ०४-६३-०२५). आम्ही दरवर्षी वित्तीय ऑडिट करून घेतो.</p><h4>२. खाते आणि ऑडिट</h4><p>आमच्या खात्यांचे ऑडिट प्रमाणित चार्टर्ड अकाउंटंट्सद्वारे केले जाते. तुम्ही आमच्या नोंदणीची प्रत <a href='./Activities/zoon-objectives.pdf' target='_blank' style='color:var(--color-primary-light); text-decoration:underline;'>अधिकृत उद्दिष्टे पीडीएफ</a> मधून डाउनलोड करू शकता.</p><h4>३. पडताळणी</h4><p>कोणत्याही आर्थिक व्यवहाराच्या किंवा वाटपाच्या पडताळणीसाठी तुम्ही आमच्या व्हॉट्सॲप हेल्पलाईन ९७९५३७१००७ वर थेट संपर्क साधू शकता.</p>",
 
         // Modal
         "mod-title": "मार्ग निवडा",
         "mod-desc": "तुम्ही कोणत्या माध्यमातून संदेश पाठवू इच्छिता?",
+        "mod-review-lbl": "संदेश तपासा / बदला",
         "mod-btn-wa": "<i class=\"fab fa-whatsapp\"></i> व्हॉट्सॲप थेट",
         "mod-btn-tg": "<i class=\"fab fa-telegram\"></i> टेलिग्राम सामायिक",
         "mod-btn-em": "<i class=\"fas fa-envelope\"></i> ईमेल मदत (Mailto)",
@@ -930,6 +985,19 @@ window.translations = {
 
         // Appending text
         "cert-pending": "नियुक्ती पत्र प्रलंबित",
-        "cert-view": "प्रशस्ती पत्र पाहण्यासाठी क्लिक करा"
+        "cert-view": "प्रशस्ती पत्र पाहण्यासाठी क्लिक करा",
+
+        // Journey
+        "journey-sub": "आमचा प्रवास",
+        "journey-title": "आमचा <span class=\"accent\">प्रवास</span>",
+        "journey-subtitle": "५ सदस्यांपासून ७ राज्यांपर्यंत",
+        "journey-desc": "हा प्रवास आम्ही ५ लोकांनी मिळून सुरू केला होता. सध्या आम्ही सुमारे ०७ राज्यांमध्ये काम करत आहोत. प्रत्येक गरजवंताचे स्वप्न साकार होईल आणि समाजकल्याणसोबतच एका नव्या समाजाची निर्मिती होईल.",
+        "journey-stat-founders": "संस्थापक सदस्य",
+        "journey-stat-states": "सक्रिय राज्ये",
+
+        // New captions
+        "cap-team-collage": "आमच्या टीमची एक झलक - बोर्ड आणि समिती सदस्य",
+        "cap-punjab-relief": "पंजाब पूर मदत (₹५१,०००) आणि महिला विंग नेतृत्व",
+        "cap-patrons-meeting": "राष्ट्रीय संरक्षक मोहम्मद जाबीर आजमी आणि अजय कुमार मिश्रा झून कार्यालयात"
     }
 };
