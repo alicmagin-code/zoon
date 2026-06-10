@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Zoon Charitable Trust (Z.C.T) - Sarai Mir, Azamgarh (UP). A registered social welfare NGO (Reg No: 04-63-025) working for Education, Healthcare, Social Welfare, and Disaster Relief.">
+    <meta name="author" content="Zoon Charitable Trust">
+    <meta name="keywords" content="Zoon Charitable Trust, ZCT, NGO, Azamgarh, Sarai Mir, Noorulain Frozy, Social Welfare, Education, Health, Donation, India NGO">
+    <title>Zoon Charitable Trust (Z.C.T) | Official Website</title>
+    
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Translations Mapping File -->
+    <script src="translations.js?v=4"></script>
+    
+    <!-- FontAwesome Icons for modern aesthetic -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="dark-theme">
+
+    <!-- Glowing Orbs Background (Theme Responsive) -->
+    <div class="background-wrapper">
+        <div class="grid-overlay"></div>
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="glow-orb orb-3"></div>
+    </div>
+
+    <!-- Glassmorphic Header -->
+    <header>
+        <div class="logo-container">
+            <img src="logo/logo.jpg" alt="Zoon Trust Logo" class="logo-img">
+            <div class="logo-text">
+                <span class="logo-title">ZOON TRUST</span>
+                <span class="logo-subtitle">Zoon Charitable Trust</span>
+            </div>
+        </div>
+
+        <nav>
+            <div class="nav-links">
+                <a href="#hero" class="active" data-i18n="nav-home">Home</a>
+                <a href="#about" data-i18n="nav-reg">Reg & Info</a>
+                <a href="#pillars" data-i18n="nav-sectors">Sectors</a>
+                <a href="#objectives" data-i18n="nav-objectives">Objectives</a>
+                <a href="#calculator" data-i18n="nav-impact">Impact</a>
+                <a href="#gallery" data-i18n="nav-gallery">Activities</a>
+                <a href="#team" data-i18n="nav-team">Team</a>
+                <a href="#contact" data-i18n="nav-contact">Contact</a>
+            </div>
+            <div class="header-actions">
+                <div class="lang-selector-container">
+                    <button class="lang-btn" aria-label="Select Language">
+                        <i class="fas fa-language"></i>
+                        <span class="current-lang">Roman</span>
+                        <i class="fas fa-chevron-down" style="font-size: 0.6rem;"></i>
+                    </button>
+                    <div class="lang-dropdown">
+                        <button data-lang="roman">Roman (Hinglish)</button>
+                        <button data-lang="hindi">हिन्दी (Hindi)</button>
+                        <button data-lang="english">English</button>
+                        <button data-lang="marathi">मराठी (Marathi)</button>
+                    </div>
+                </div>
+                <button class="theme-toggle-btn" aria-label="Toggle Theme">
+                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-sun"></i>
+                </button>
+                <a href="#calculator" class="btn-cta">
+                    <i class="fas fa-heart"></i> Donate Now
+                </a>
+            </div>
+        </nav>
+
+        <button class="hamburger" aria-label="Open Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <div class="hero-container">
+            <div class="hero-content reveal-left">
+                <div class="hero-tag" data-i18n="hero-tag">
+                    <i class="fas fa-shield-halved"></i> Govt. Registered NGO (Reg: 04-63-025)
+                </div>
+                <h1 class="hero-title" data-i18n="hero-title">
+                    Sewa, Shiksha aur Swasthya Ka
+                    <span class="accent-text">Sankalp</span>
+                </h1>
+                <p class="hero-description" data-i18n="hero-desc">
+                    Zoon Charitable Trust (Z.C.T) Azamgarh (U.P.) ke zariye samaj ke sabhi yateem, besahara, aur zarooratmand bhai-behnoko unki buniyadi zarooraten aur behtar mustaqbil (future) dene ki ek choti si koshish.
+                </p>
+                <div class="hero-btns">
+                    <a href="#calculator" class="btn-cta" data-i18n="btn-madad">
+                        <i class="fas fa-heart"></i> Madad Karein
+                    </a>
+                    <a href="./Activities/zoon-objectives.pdf" target="_blank" class="btn-secondary" data-i18n="btn-pdf">
+                        <i class="fas fa-file-pdf"></i> View Objectives PDF
+                    </a>
+                </div>
+                
+                <!-- Counter Numbers -->
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-num" data-target="1500" data-suffix="+">0</span>
+                        <span class="stat-label" data-i18n="stat-fed-lbl">Families Fed</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-num" data-target="500" data-suffix="+">0</span>
+                        <span class="stat-label" data-i18n="stat-edu-lbl">Kids Educated</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-num" data-target="50" data-suffix="+">0</span>
+                        <span class="stat-label" data-i18n="stat-health-lbl">Health Camps</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3D Interactive Canvas & Floating widgets -->
+            <div class="hero-canvas-container reveal-right">
+                <canvas id="canvas-3d"></canvas>
+                
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Banner (Official Details Banner) -->
+    <section id="about" class="trust-banner-section reveal">
+        <div class="trust-banner">
+            <div class="trust-badge-container">
+                <div class="official-seal">
+                    <i class="fas fa-award"></i>
+                    <span data-i18n="seal-lbl">GOVT REG</span>
+                </div>
+                <div class="trust-info">
+                    <div class="trust-reg-num" data-i18n="reg-num">
+                        ZCT Reg: 04-63-025
+                        <span class="badge" data-i18n="reg-badge">Official Trust</span>
+                    </div>
+                    <div class="trust-office-hq" data-i18n="hq-addr">
+                        <i class="fas fa-location-dot"></i>
+                        National Office: Railway Station Road, Sarai Mir, Azamgarh, UP (276305)
+                    </div>
+                </div>
+            </div>
+            <div class="trust-banner-actions">
+                <a href="tel:+919795371007" class="btn-secondary" data-i18n="btn-call">
+                    <i class="fas fa-phone"></i> Call HQ
+                </a>
+                <a href="./Activities/zoon-objectives.pdf" target="_blank" class="btn-cta" data-i18n="btn-pdf-banner">
+                    <i class="fas fa-file-pdf"></i> Official PDF
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Pillars Section -->
+    <section id="pillars" class="section-padding">
+        <div class="section-header reveal">
+            <span class="section-subtitle" data-i18n="sec-sub">Hamare Karyakshetra</span>
+            <h2 class="section-title" data-i18n="sec-title">Focus <span class="accent">Sectors</span></h2>
+            <p class="section-desc" data-i18n="sec-desc">Zoon Charitable Trust samaj ke teen sabse ahem kshetron mein musalsal sargarmi (activity) se kaam kar rahi hai:</p>
+        </div>
+
+        <div class="pillars-grid">
+            <!-- Education -->
+            <div class="pillar-card-wrapper reveal">
+                <div class="pillar-card">
+                    <div class="pillar-img-container">
+                        <img src="./Activities/awareness-campaign.jpg" alt="ZCT Education Campaign">
+                        <div class="pillar-img-overlay"></div>
+                        <div class="pillar-icon-badge">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                    </div>
+                    <div class="pillar-content">
+                        <h3 class="pillar-title" data-i18n="sec1-title">Education (Taleem)</h3>
+                        <p class="pillar-desc" data-i18n="sec1-desc">
+                            Humara maqsad hai ki koi bhi bacha paise ki tangi ki wajah se taleem se mehroom na rahe. Iske liye hum nishulk shiksha ke saath buniyadi cheezein distribute karte hain.
+                        </p>
+                        <ul class="pillar-list">
+                            <li data-i18n="sec1-l1"><i class="fas fa-chevron-right"></i> Gareeb & yateem bachon ki school fees support</li>
+                            <li data-i18n="sec1-l2"><i class="fas fa-chevron-right"></i> Bags, Books aur Stationery distribution</li>
+                            <li data-i18n="sec1-l3"><i class="fas fa-chevron-right"></i> Career counseling camps gaon-dehat mein</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Healthcare -->
+            <div class="pillar-card-wrapper reveal" style="transition-delay: 0.1s;">
+                <div class="pillar-card">
+                    <div class="pillar-img-container">
+                        <img src="./Activities/medical-campaign.jpg" alt="ZCT Medical Camp">
+                        <div class="pillar-img-overlay"></div>
+                        <div class="pillar-icon-badge">
+                            <i class="fas fa-briefcase-medical"></i>
+                        </div>
+                    </div>
+                    <div class="pillar-content">
+                        <h3 class="pillar-title" data-i18n="sec2-title">Healthcare (Sehat)</h3>
+                        <p class="pillar-desc" data-i18n="sec2-desc">
+                            ZCT rural areas aur gareeb bastiyon mein swasthya sevaen (medical facilities) pahunchane aur logon ko bimariyon se bachane ke liye camps aayojit karti hai.
+                        </p>
+                        <ul class="pillar-list">
+                            <li data-i18n="sec2-l1"><i class="fas fa-chevron-right"></i> Free Health checkup & consultation camps</li>
+                            <li data-i18n="sec2-l2"><i class="fas fa-chevron-right"></i> Zarooratmand logon ko muft dawaiyan</li>
+                            <li data-i18n="sec2-l3"><i class="fas fa-chevron-right"></i> Emergency medical financial support</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Social Welfare -->
+            <div class="pillar-card-wrapper reveal" style="transition-delay: 0.2s;">
+                <div class="pillar-card">
+                    <div class="pillar-img-container">
+                        <img src="./Activities/kambal-vitran-samaroh.jpeg" alt="ZCT Blanket Distribution">
+                        <div class="pillar-img-overlay"></div>
+                        <div class="pillar-icon-badge">
+                            <i class="fas fa-hands-holding"></i>
+                        </div>
+                    </div>
+                    <div class="pillar-content">
+                        <h3 class="pillar-title" data-i18n="sec3-title">Social Welfare (Kalyan)</h3>
+                        <p class="pillar-desc" data-i18n="sec3-desc">
+                            Gareeb parivaron ke jeewan star ko sudharne, aapaatkalin sthitiyon (disasters) mein turant rahat aur thand ke mausam mein bachav ke ahem karyakram.
+                        </p>
+                        <ul class="pillar-list">
+                            <li data-i18n="sec3-l1"><i class="fas fa-chevron-right"></i> Sardiyon mein kambal (blanket) distribution</li>
+                            <li data-i18n="sec3-l2"><i class="fas fa-chevron-right"></i> Ration kits distribution (Gareeb parivaron ko)</li>
+                            <li data-i18n="sec3-l3"><i class="fas fa-chevron-right"></i> Disaster Relief (Baadh/Aafat ke waqt madad)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 14 Main Objectives Section -->
+    <section id="objectives" class="section-padding">
+        <div class="section-header reveal">
+            <span class="section-subtitle" data-i18n="obj-sub">Hamare 14 Mukhy Uddeshya</span>
+            <h2 class="section-title" data-i18n="obj-title">Core <span class="accent">Objectives</span></h2>
+            <p class="section-desc" data-i18n="obj-desc">Zoon Charitable Trust ke 14 pramukh lakshya (goals) jinpar hamari poori team lagatar din-raat kaam karti hai:</p>
+        </div>
+
+        <div class="objectives-container">
+            <!-- 1. Samaj Kalyan -->
+            <div class="objective-card-wrapper reveal">
+                <div class="objective-card">
+                    <span class="obj-num">01</span>
+                    <div class="obj-icon"><i class="fas fa-users"></i></div>
+                    <div class="obj-content">
+                        <span class="obj-title-hi" data-i18n="obj-1-title-hi">Samaj Kalyan</span>
+                        <span class="obj-title-en" data-i18n="obj-1-title-en">Social Welfare</span>
+                        <p class="obj-desc" data-i18n="obj-1-desc">Shiksha, health aur gareebi unmulan ke liye samagrah roop se kaam karna.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Shiksha -->
+            <div class="objective-card-wrapper reveal">
+                <div class="objective-card">
+                    <span class="obj-num">02</span>
+                    <div class="obj-icon"><i class="fas fa-book-open"></i></div>
+                    <div class="obj-content">
+                        <span class="obj-title-hi" data-i18n="obj-2-title-hi">Nishulk Shiksha</span>
+                        <span class="obj-title-en" data-i18n="obj-2-title-en">Free Education</span>
+                        <p class="obj-desc" data-i18n="obj-2-desc">Gareeb aur kamzor bachon ko scholarships aur padhai ke liye financial help dena.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Swasthya Seva -->
+            <div class="objective-card-wrapper reveal">
+                <div class="objective-card">
+                    <span class="obj-num">03</span>
+                    <div class="obj-icon"><i class="fas fa-heart-pulse"></i></div>
+                    <div class="obj-content">
+                        <span class="obj-title-hi" data-i18n="obj-3-title-hi">Swasthya Seva</span>
+                        <span class="obj-title-en" data-i18n="obj-3-title-en">Healthcare Services</span>
+                        <p class="obj-desc" data-i18n="obj-3-desc">Medical camps lagana, bimariyon se bachav ke liye jagrukta (awareness) failana.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 4. Buniyadi Zarooraten -->
+            <div class="objective-card-wrapper reveal">
+                <div class="objective-card">
+                    <span class="obj-num">04</span>
+                    <div class="obj-icon"><i class="fas fa-cookie-bite"></i></div>
+                    <div class="obj-content">
+                        <span class="obj-title-hi" data-i18n="obj-4-title-hi">Buniyadi Zarooraten</span>
+                        <span class="obj-title-en" data-i18n="obj-4-title-en">Basic Needs Support</span>
+                        <p class="obj-desc" data-i18n="obj-4-desc">Zarooratmand logon ko khana, chath (shelter), aur kapde pradan karna.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 5. Samudaayik Kalyan -->
+            <div class="objective-card-wrapper reveal">
+                <div class="objective-card">
+                    <span class="obj-num">05</span>
+                    <div class="obj-icon"><i class="fas fa-wheelchair"></i></div>
+                    <div class="obj-content">
+                        <span class="obj-title-hi" data-i18n="obj-5-title-hi">Samudaayik Kalyan</span>
+                        <span class="obj-title-en" data-i18n="obj-5-title-en">Community Care</span>
+                        <p class="obj-desc" data-i18n="obj-5-desc">Anath, buzurg, divyang aur beghar logon ki dekhbhal aur ashray ka prabandh karna.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 6. Paryavaran Sanrakshan -->
+            <div class="objective-card-wrapper reveal">
+                <div class="objective-card">
+                    <span class="obj-num">06</span>
+                    <div class="obj-icon"><i class="fas fa-tree"></i></div>
+                    <div class="obj-content">
+                        <span class="obj-title-hi" data-i18n="obj-6-title-hi">Paryavaran Sanrakshan</span>
+                        <span class="obj-title-en" data-i18n="obj-6-title-en">Environment Care</span>
+                        <p class="obj-desc" data-i18n="obj-6-desc">Ped lagana (plantation), pradushan kam karna, aur prakriti ki suraksha.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 7. Sanskritik Karyakram -->
+            <div class="objective-card-wrapper reveal">
+                <div class="objective-card">
+                    <span class="obj-num">07</span>
+                    <div class="obj-icon"><i class="fas fa-masks-theater"></i></div>
+                    <div class="obj-content">
+                        <span class="obj-title-hi" data-i18n="obj-7-title-hi">Sanskritik Karyakram</span>
+                        <span class="obj-title-en" data-i18n="obj-7-title-en">Cultural Events</span>
+                        <p class="obj-desc" data-i18n="obj-7-desc">Art, music, aur theater ke zariye samajik sandesh failana aur culture badhava dena.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 8. Manvadhikar -->
+            <div class="objective-card-wrapper reveal">
+                <div class="objective-card">
+                    <span class="obj-num">08</span>
+                    <div class="obj-icon"><i class="fas fa-scale-balanced"></i></div>
+                    <div class="obj-content">
+                        <span class="obj-title-hi" data-i18n="obj-8-title-hi">Manvadhikar</span>
+                        <span class="obj-title-en" data-i18n="obj-8-title-en">Human Rights</span>
+                        <p class="obj-desc" data-i18n="obj-8-desc">Har aam aur kamzor nagrik ke kanooni aur samajik adhikaaron ki hifazat karna.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 9. Aarthik Vikas -->
+            <div class="objective-card-wrapper reveal">
+                <div class="objective-card">
+                    <span class="obj-num">09</span>
+                    <div class="obj-icon"><i class="fas fa-seedling"></i></div>
+                    <div class="obj-content">
+                        <span class="obj-title-hi" data-i18n="obj-9-title-hi">Aarthik Vikas</span>
+                        <span class="obj-title-en" data-i18n="obj-9-title-en">Rural Development</span>
+                        <p class="obj-desc" data-i18n="obj-9-desc">Gaon dehat mein vikas, sinchai (irrigation), aur bijli/paani ki suvidha.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 10. Samajik Nyay -->
+            <div class="objective-card-wrapper reveal">
+                <div class="objective-card">
+                    <span class="obj-num">10</span>
+                    <div class="obj-icon"><i class="fas fa-handshake-angle"></i></div>
+                    <div class="obj-content">
+                        <span class="obj-title-hi" data-i18n="obj-10-title-hi">Samajik Nyay</span>
+                        <span class="obj-title-en" data-i18n="obj-10-title-en">Social Justice</span>
+                        <p class="obj-desc" data-i18n="obj-10-desc">Jaati, dharam, ling ya naxl ke aadhar par hone wale bhedbhav ko samaj se mitana.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 11. Aapaatkalin Sahayata -->
+            <div class="objective-card-wrapper reveal">
+                <div class="objective-card">
+                    <span class="obj-num">11</span>
+                    <div class="obj-icon"><i class="fas fa-kit-medical"></i></div>
+                    <div class="obj-content">
+                        <span class="obj-title-hi" data-i18n="obj-11-title-hi">Aapaat Relief</span>
+                        <span class="obj-title-en" data-i18n="obj-11-title-en">Disaster Relief</span>
+                        <p class="obj-desc" data-i18n="obj-11-desc">Baadh, bhookamp aur toofan jaisi aafat ke waqt peediton tak turant rahat pahunchana.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 12. Samajik Seva -->
+            <div class="objective-card-wrapper reveal">
+                <div class="objective-card">
+                    <span class="obj-num">12</span>
+                    <div class="obj-icon"><i class="fas fa-broom"></i></div>
+                    <div class="obj-content">
+                        <span class="obj-title-hi" data-i18n="obj-12-title-hi">Samajik Seva</span>
+                        <span class="obj-title-en" data-i18n="obj-12-title-en">Social Service</span>
+                        <p class="obj-desc" data-i18n="obj-12-desc">Swachhta abhiyan (cleanliness drive) aur blood donation camps lagana.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 13. Kanooni Sahayata -->
+            <div class="objective-card-wrapper reveal">
+                <div class="objective-card">
+                    <span class="obj-num">13</span>
+                    <div class="obj-icon"><i class="fas fa-gavel"></i></div>
+                    <div class="obj-content">
+                        <span class="obj-title-hi" data-i18n="obj-13-title-hi">Kanooni Sahayata</span>
+                        <span class="obj-title-en" data-i18n="obj-13-title-en">Free Legal Aid</span>
+                        <p class="obj-desc" data-i18n="obj-13-desc">Gareeb aur peedit logon ko muft kanooni salah aur nayayilay mein madad dena.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 14. Shodh aur Vikas -->
+            <div class="objective-card-wrapper reveal">
+                <div class="objective-card">
+                    <span class="obj-num">14</span>
+                    <div class="obj-icon"><i class="fas fa-chart-line"></i></div>
+                    <div class="obj-content">
+                        <span class="obj-title-hi" data-i18n="obj-14-title-hi">Shodh & Vikas</span>
+                        <span class="obj-title-en" data-i18n="obj-14-title-en">Research & Dev.</span>
+                        <p class="obj-desc" data-i18n="obj-14-desc">Gareebi door karne aur samaj ko unnat banane ke liye naye tareeqon par shodh.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Donation Impact Calculator Section -->
+    <section id="calculator" class="section-padding calculator-section">
+        <div class="calc-container">
+            <div class="calc-info reveal-left">
+                <span class="section-subtitle" data-i18n="calc-sub">Interactive Impact Simulator</span>
+                <h2 class="section-title" data-i18n="calc-title">Aapki Choti Si Madad, <br><span class="accent">Bada Badlav</span></h2>
+                <p class="section-desc" data-i18n="calc-desc">
+                    Zoon Charitable Trust ke transparent impact calculator se dekhein ki aapka ek chota sa yogdan kitne logon ke jeewan mein khushiyan la sakta hai.
+                </p>
+                <p data-i18n="calc-more-desc">
+                    Hamare dwara distribute kiye jaane wale har kit ki audit reporting public hoti hai. Aap apni donation ka status aur distribution videos WhatsApp ke zariye mangwa sakte hain.
+                </p>
+                <div class="contact-info-item">
+                    <div class="ci-icon"><i class="fas fa-circle-check"></i></div>
+                    <div class="ci-content">
+                        <span class="ci-value" style="font-weight:700; color:var(--text-primary);" data-i18n="calc-badge-title">100% Direct Impact Verification</span>
+                        <p class="obj-desc" style="margin:0;" data-i18n="calc-badge-desc">Jahan aapka paisa sidhe zarooratmand tak pahunchta hai.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Calculator Box -->
+            <div class="calc-box reveal-right">
+                <h3 class="pillar-title" style="margin-bottom: 0.5rem; text-align:center;" data-i18n="calc-box-title">Impact Simulator</h3>
+                <p class="obj-desc" style="text-align: center; margin-bottom: 1.5rem;" data-i18n="calc-box-desc">Select program & scroll multiplier to view impact</p>
+                
+                <!-- Category buttons -->
+                <div class="calc-types">
+                    <button class="calc-type-btn active" data-type="ration" data-i18n="calc-ration-lbl">
+                        <i class="fas fa-bowl-food"></i>
+                        <span>Ration Kit</span>
+                    </button>
+                    <button class="calc-type-btn" data-type="blanket" data-i18n="calc-blanket-lbl">
+                        <i class="fas fa-bed"></i>
+                        <span>Blanket Kit</span>
+                    </button>
+                    <button class="calc-type-btn" data-type="school" data-i18n="calc-school-lbl">
+                        <i class="fas fa-pencil"></i>
+                        <span>School Kit</span>
+                    </button>
+                </div>
+
+                <div class="calc-input-group">
+                    <div class="calc-label-row">
+                        <span class="calc-label" data-i18n="calc-mult-lbl">Donation Multiplier</span>
+                        <span class="calc-amt-display">₹7,500</span>
+                    </div>
+                    <div class="range-slider-wrapper">
+                        <input type="range" class="calc-slider" min="1" max="30" value="5">
+                    </div>
+                </div>
+
+                <div class="calc-output">
+                    <div class="calc-metric">
+                        <span id="calc-people" class="calc-metric-num">25</span>
+                        <span id="calc-label-people" class="calc-metric-label">Logon ko Khana</span>
+                    </div>
+                    <div class="calc-metric">
+                        <span id="calc-days" class="calc-metric-num">5</span>
+                        <span id="calc-label-units" class="calc-metric-label">Parivaron ko Ration</span>
+                    </div>
+                </div>
+
+                <button class="btn-cta" data-i18n="calc-output-btn">
+                    <i class="fas fa-heart-pulse"></i> Proced to Donate / Support
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Activities Gallery Section -->
+    <section id="gallery" class="section-padding">
+        <div class="section-header reveal">
+            <span class="section-subtitle" data-i18n="gal-sub">Hamare Kaam Tasveeron Mein</span>
+            <h2 class="section-title" data-i18n="gal-title">Campaign <span class="accent">Gallery</span></h2>
+            <p class="section-desc" data-i18n="gal-desc">Zoon Charitable Trust ke alag-alag karyakramon ki kuch jhalakiyan jo hamari transparency ko darshati hain:</p>
+        </div>
+
+        <!-- Filter buttons -->
+        <div class="gallery-filters reveal">
+            <button class="filter-btn active" data-filter="all" data-i18n="f-all">All Activities</button>
+            <button class="filter-btn" data-filter="welfare" data-i18n="f-welfare">Welfare & Relief</button>
+            <button class="filter-btn" data-filter="health" data-i18n="f-health">Healthcare</button>
+            <button class="filter-btn" data-filter="education" data-i18n="f-education">Education</button>
+            <button class="filter-btn" data-filter="environment" data-i18n="f-environment">Environment</button>
+            <button class="filter-btn" data-filter="office" data-i18n="f-office">HQ & Meetings</button>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div class="gallery-grid reveal">
+            
+            <!-- National Office -->
+            <div class="gallery-item" data-category="office">
+                <img src="./Activities/national-office.jpg" alt="ZCT National Office HQ">
+                <div class="gallery-overlay">
+                    <span class="gallery-tag">Office</span>
+                    <span class="gallery-caption" data-i18n="cap-office">ZCT National Office HQ, Sarai Mir, Azamgarh, UP</span>
+                </div>
+            </div>
+
+            <!-- Medical Campaign -->
+            <div class="gallery-item" data-category="health">
+                <img src="./Activities/medical-campaign.jpg" alt="ZCT Free Medical Camp">
+                <div class="gallery-overlay">
+                    <span class="gallery-tag">Healthcare</span>
+                    <span class="gallery-caption" data-i18n="cap-health">Nishulk Swasthya Seva aur Muft Dawai Vitran Camp</span>
+                </div>
+            </div>
+
+            <!-- Blanket Vitran -->
+            <div class="gallery-item" data-category="welfare">
+                <img src="./Activities/kambal-vitran-samaroh.jpeg" alt="ZCT Blanket Distribution">
+                <div class="gallery-overlay">
+                    <span class="gallery-tag">Social Welfare</span>
+                    <span class="gallery-caption" data-i18n="cap-blanket">Thand Ke Mausam Mein Kambal (Blankets) Vitran Samaroh</span>
+                </div>
+            </div>
+
+            <!-- Flood Campaign -->
+            <div class="gallery-item" data-category="welfare">
+                <img src="./Activities/floodcampaign.jpeg" alt="ZCT Disaster Relief">
+                <div class="gallery-overlay">
+                    <span class="gallery-tag">Disaster Relief</span>
+                    <span class="gallery-caption" data-i18n="cap-flood">Baadh (Flood) Relief Campaign - Peediton ki Sahayata</span>
+                </div>
+            </div>
+
+            <!-- Women Empowerment Honoring -->
+            <div class="gallery-item" data-category="welfare">
+                <img src="./Activities/womenempowerment-honoring.jpg" alt="Gulista Salmani Felicitation">
+                <div class="gallery-overlay">
+                    <span class="gallery-tag">Social Welfare</span>
+                    <span class="gallery-caption" data-i18n="cap-felicit">Gulista Salmani ko Prashasti Patra se Honoring at ZCT Office</span>
+                </div>
+            </div>
+
+            <!-- Awareness Campaign -->
+            <div class="gallery-item" data-category="education">
+                <img src="./Activities/awareness-campaign.jpg" alt="ZCT Education Awareness">
+                <div class="gallery-overlay">
+                    <span class="gallery-tag">Education</span>
+                    <span class="gallery-caption" data-i18n="cap-awareness">Gareeb Basti Mein Shiksha Jagrukta aur Bags Distribution</span>
+                </div>
+            </div>
+
+            <!-- Paryavaran -->
+            <div class="gallery-item" data-category="environment">
+                <img src="./Activities/paryavaran.jpg" alt="ZCT Environment Plantation">
+                <div class="gallery-overlay">
+                    <span class="gallery-tag">Environment</span>
+                    <span class="gallery-caption" data-i18n="cap-plant">Paryavaran Sanrakshan - Ped Lagao Abhiyan</span>
+                </div>
+            </div>
+
+            <!-- World Environment Day -->
+            <div class="gallery-item" data-category="environment">
+                <img src="./Activities/vishva-paryavaran-divas-5-june-2026.jpeg" alt="ZCT Environment Day 2026">
+                <div class="gallery-overlay">
+                    <span class="gallery-tag">Environment</span>
+                    <span class="gallery-caption" data-i18n="cap-env-day">World Environment Day Celebration - 5 June 2026</span>
+                </div>
+            </div>
+
+            <!-- Meeting -->
+            <div class="gallery-item" data-category="office">
+                <img src="./Activities/meeting.jpg" alt="ZCT Board Meeting">
+                <div class="gallery-overlay">
+                    <span class="gallery-tag">HQ & Meetings</span>
+                    <span class="gallery-caption" data-i18n="cap-meeting">Trust ke Ahem Uddeshya aur Future Projects par Meeting</span>
+                </div>
+            </div>
+
+            <!-- Women Empowerment Skill Training -->
+            <div class="gallery-item" data-category="welfare">
+                <img src="./Activities/womenempowerment.jpg" alt="Women Self-Reliance">
+                <div class="gallery-overlay">
+                    <span class="gallery-tag">Social Welfare</span>
+                    <span class="gallery-caption" data-i18n="cap-sewing">Mahila Sashaktikaran - Silai/Kadhai Center Development</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- National Team Section -->
+    <section id="team" class="section-padding">
+        <div class="section-header reveal">
+            <span class="section-subtitle" data-i18n="team-sub">Hamari Rashtriya Karyakarini</span>
+            <h2 class="section-title" data-i18n="team-title">National <span class="accent">Team</span></h2>
+            <p class="section-desc" data-i18n="team-desc">Zoon Charitable Trust ke karyakari sadasya jo trust ki nitiyon ko zameen par utarne mein madad karte hain:</p>
+        </div>
+
+        <div class="team-container">
+            <!-- Focus Card 1: Raj Bahadur -->
+            <div class="leader-focus-card reveal">
+                <div class="leader-img-wrapper">
+                    <img src="./National%20Team/Raj%20Bahadur%20Yadav%20(National%20President).jpeg" alt="Raj Bahadur">
+                    <span class="leader-badge" data-i18n="lead1-badge">National Executive</span>
+                </div>
+                <div class="leader-info">
+                    <div class="leader-title-row">
+                        <span class="leader-role" data-i18n="lead1-role">National President</span>
+                        <span class="leader-role-hi" data-i18n="lead1-role-hi">राष्ट्रीय अध्यक्ष</span>
+                        <h3 class="leader-name" data-i18n="lead1-name">Raj Bahadur</h3>
+                    </div>
+                    <p class="leader-quote" data-i18n="lead1-quote">
+                        "Samajik utthan tabhi sambhav hai jab shiksha aur swasthya suvidhaen har nagrik tak bina kisi bhedbhav ke pahunchein."
+                    </p>
+                    <p class="leader-bio" data-i18n="lead1-bio">
+                        Raj Bahadur, Zoon Charitable Trust (Z.C.T) ke National President hain. Unke netritva mein trust samaj ke pichhde, anath, aur besahara vargon ko aarthik aur samajik roop se sashakt banane ke liye lagatar prayasrat hai.
+                    </p>
+                    <div class="leader-contacts">
+                        <a href="https://wa.me/919795371007" target="_blank" class="leader-contact-item">
+                            <i class="fab fa-whatsapp"></i> 9795371007
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Focus Card 2: Noorulain Firozy -->
+            <div class="leader-focus-card reveal">
+                <div class="leader-img-wrapper">
+                    <img src="./National%20Team/Noorulain%20Firozy%20(National%20Secretary%20and%20Treasurer.jpeg" alt="Noorulain Firozy">
+                    <span class="leader-badge" data-i18n="lead2-badge">National Executive</span>
+                </div>
+                <div class="leader-info">
+                    <div class="leader-title-row">
+                        <span class="leader-role" data-i18n="lead2-role">Chief National General Secretary & Treasurer</span>
+                        <span class="leader-role-hi" data-i18n="lead2-role-hi">प्रमुख राष्ट्रीय महासचिव और कोषाध्यक्ष</span>
+                        <h3 class="leader-name" data-i18n="lead2-name">Noorulain Firozy</h3>
+                    </div>
+                    <p class="leader-quote" data-i18n="lead2-quote">
+                        "Mera aur mere doston ka ek hi khwab hai ki hum apne ilake Azamgarh aur poore desh se gareebi aur taleem ki kami ko door kar sakein. Z.C.T isi disha me ek prayaas hai."
+                    </p>
+                    <p class="leader-bio" data-i18n="lead2-bio">
+                        Noorulain Firozy (Frozy), Sarai Mir (Azamgarh) ke nivasi hain. Unhone samajik vikas aur gareebon ki aarthik madad ke liye doston ke sath milkar Zoon Charitable Trust ki sthapna ki. Wo lagatar trust ke national operations aur finance ko lead kar rahe hain.
+                    </p>
+                    <div class="leader-contacts">
+                        <a href="https://wa.me/919795371007" target="_blank" class="leader-contact-item">
+                            <i class="fab fa-whatsapp"></i> 9795371007
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Team Members Grid -->
+            <div class="team-grid-header reveal">
+                <h4 class="pillar-title" style="margin-bottom: 2rem;" data-i18n="team-grid-title">Executive Board & Working Committee</h4>
+            </div>
+
+            <div class="team-grid reveal">
+                <!-- Member 3 -->
+                <div class="team-card">
+                    <img src="./National%20Team/Mohd.%20Jabir%20Azmi%20(National%20Patron).jpeg" alt="Mohammad Jabir Azmi" class="team-member-img">
+                    <span class="team-member-name" data-i18n="team-m3-name">Mohammad Jabir Azmi</span>
+                    <span class="team-member-role" data-i18n="team-m3-role">National Patron</span>
+                </div>
+                <!-- Member 4 -->
+                <div class="team-card">
+                    <img src="./National%20Team/Ajay%20Kumar%20Mishra%20(National%20Patron).jpeg" alt="Ajay Kumar Mishra" class="team-member-img">
+                    <span class="team-member-name" data-i18n="team-m4-name">Ajay Kumar Mishra</span>
+                    <span class="team-member-role" data-i18n="team-m4-role">National Patron</span>
+                </div>
+                <!-- Member 5 -->
+                <div class="team-card">
+                    <div class="placeholder-thumbnail">
+                        <i class="fas fa-id-card"></i>
+                        <span data-i18n="cert-pending">Appointment Card Pending</span>
+                    </div>
+                    <span class="team-member-name" data-i18n="team-m5-name">Mohammad Tariq Badar</span>
+                    <span class="team-member-role" data-i18n="team-m5-role">Central Joint In-charge</span>
+                </div>
+                <!-- Member 6 -->
+                <div class="team-card">
+                    <img src="./National%20Team/Heeralal%20Yadav%20-%20National%20Executive%20Chairman.jpeg" alt="Hiralal Yadav" class="team-member-img">
+                    <span class="team-member-name" data-i18n="team-m6-name">Hiralal Yadav</span>
+                    <span class="team-member-role" data-i18n="team-m6-role">National Executive Pres.</span>
+                </div>
+                <!-- Member 7 -->
+                <div class="team-card">
+                    <img src="./National%20Team/Haidar%20Ali%20Azmi%20-%20National%20Spokeperson.jpeg" alt="Haider Ali Azmi" class="team-member-img">
+                    <span class="team-member-name" data-i18n="team-m7-name">Haider Ali Azmi</span>
+                    <span class="team-member-role" data-i18n="team-m7-role">National Spokesperson</span>
+                </div>
+                <!-- Member 8 -->
+                <div class="team-card">
+                    <img src="./National%20Team/Rowaifa%20Jamal%20-%20National%20Vicee%20President.jpeg" alt="Rovaifa Jamal" class="team-member-img">
+                    <span class="team-member-name" data-i18n="team-m8-name">Rovaifa Jamal</span>
+                    <span class="team-member-role" data-i18n="team-m8-role">National Vice President</span>
+                </div>
+                <!-- Member 9 -->
+                <div class="team-card">
+                    <img src="./National%20Team/Rahul%20Singh%20(National%20Vice%20President).jpeg" alt="Rahul Singh" class="team-member-img">
+                    <span class="team-member-name" data-i18n="team-m9-name">Rahul Singh</span>
+                    <span class="team-member-role" data-i18n="team-m9-role">National Vice President</span>
+                </div>
+                <!-- Member 10 -->
+                <div class="team-card">
+                    <img src="./National%20Team/Waseem%20Quraishi%20-%20National%20Organisation%20Minister.jpeg" alt="Waseem Qureshi" class="team-member-img">
+                    <span class="team-member-name" data-i18n="team-m10-name">Waseem Qureshi</span>
+                    <span class="team-member-role" data-i18n="team-m10-role">National Org. Secretary</span>
+                </div>
+                <!-- Member 11 -->
+                <div class="team-card">
+                    <img src="./National%20Team/Mohd%20Yasir%20Arafat%20-%20National%20Media%20Incharge.jpeg" alt="Mohammad Yasir" class="team-member-img">
+                    <span class="team-member-name" data-i18n="team-m11-name">Mohammad Yasir</span>
+                    <span class="team-member-role" data-i18n="team-m11-role">National Media In-charge</span>
+                </div>
+                <!-- Member 12 -->
+                <div class="team-card">
+                    <img src="./National%20Team/Zarar%20Ahmad%20(National%20Councillor).jpeg" alt="Zarar Ahmad" class="team-member-img">
+                    <span class="team-member-name" data-i18n="team-m12-name">Zarar Ahmad</span>
+                    <span class="team-member-role" data-i18n="team-m12-role">National Exec. Member</span>
+                </div>
+                <!-- Member 13 -->
+                <div class="team-card">
+                    <div class="placeholder-thumbnail">
+                        <i class="fas fa-id-card"></i>
+                        <span data-i18n="cert-pending">Appointment Card Pending</span>
+                    </div>
+                    <span class="team-member-name" data-i18n="team-m13-name">Naseem Ahmad</span>
+                    <span class="team-member-role" data-i18n="team-m13-role">National Exec. Member</span>
+                </div>
+                <!-- Member 14 -->
+                <div class="team-card">
+                    <div class="placeholder-thumbnail">
+                        <i class="fas fa-id-card"></i>
+                        <span data-i18n="cert-pending">Appointment Card Pending</span>
+                    </div>
+                    <span class="team-member-name" data-i18n="team-m14-name">Junaid Ahmad</span>
+                    <span class="team-member-role" data-i18n="team-m14-role">National Exec. Member</span>
+                </div>
+                <!-- Member 15 -->
+                <div class="team-card">
+                    <img src="./National%20Team/1%20(15).jpeg" alt="Abu Qasim" class="team-member-img">
+                    <span class="team-member-name" data-i18n="team-m15-name">Abu Qasim</span>
+                    <span class="team-member-role" data-i18n="team-m15-role">National Exec. Member</span>
+                </div>
+                <!-- Member 16 -->
+                <div class="team-card">
+                    <div class="placeholder-thumbnail">
+                        <i class="fas fa-id-card"></i>
+                        <span data-i18n="cert-pending">Appointment Card Pending</span>
+                    </div>
+                    <span class="team-member-name" data-i18n="team-m16-name">Kuldeep Singh</span>
+                    <span class="team-member-role" data-i18n="team-m16-role">National Exec. Member</span>
+                </div>
+                <!-- Member 17 -->
+                <div class="team-card">
+                    <img src="./National%20Team/1%20(17).jpeg" alt="Abhay Chandra Gupta" class="team-member-img">
+                    <span class="team-member-name" data-i18n="team-m17-name">Abhay Chandra Gupta</span>
+                    <span class="team-member-role" data-i18n="team-m17-role">National Exec. Member</span>
+                </div>
+                <!-- Member 18 -->
+                <div class="team-card">
+                    <div class="placeholder-thumbnail">
+                        <i class="fas fa-id-card"></i>
+                        <span data-i18n="cert-pending">Appointment Card Pending</span>
+                    </div>
+                    <span class="team-member-name" data-i18n="team-m18-name">Ram Sevak Yadav</span>
+                    <span class="team-member-role" data-i18n="team-m18-role">National Exec. Member</span>
+                </div>
+                <!-- Member 19 -->
+                <div class="team-card">
+                    <div class="placeholder-thumbnail">
+                        <i class="fas fa-id-card"></i>
+                        <span data-i18n="cert-pending">Appointment Card Pending</span>
+                    </div>
+                    <span class="team-member-name" data-i18n="team-m19-name">Mohammad Faisal</span>
+                    <span class="team-member-role" data-i18n="team-m19-role">Working Committee Member</span>
+                </div>
+                <!-- Member 20 -->
+                <div class="team-card">
+                    <div class="placeholder-thumbnail">
+                        <i class="fas fa-id-card"></i>
+                        <span data-i18n="cert-pending">Appointment Card Pending</span>
+                    </div>
+                    <span class="team-member-name" data-i18n="team-m20-name">Dr. Anjum Ara</span>
+                    <span class="team-member-role" data-i18n="team-m20-role">Working Committee Member</span>
+                </div>
+                <!-- Member 21 -->
+                <div class="team-card">
+                    <div class="placeholder-thumbnail">
+                        <i class="fas fa-id-card"></i>
+                        <span data-i18n="cert-pending">Appointment Card Pending</span>
+                    </div>
+                    <span class="team-member-name" data-i18n="team-m21-name">Mohd Danish</span>
+                    <span class="team-member-role" data-i18n="team-m21-role">Working Committee Member</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Volunteer Tabs Section -->
+    <section id="contact" class="section-padding contact-section">
+        <div class="contact-grid">
+            <div class="contact-details reveal-left">
+                <div class="contact-card-info">
+                    <div>
+                        <span class="section-subtitle" data-i18n="con-sub">Humse Judhein</span>
+                        <h3 class="pillar-title" style="margin-top:0.5rem; font-size:1.6rem;" data-i18n="con-title">Zoon Charitable Trust</h3>
+                        <p class="obj-desc" data-i18n="con-desc">Aap call, WhatsApp, ya national office par direct aakar humari team se rabta kar sakte hain.</p>
+                    </div>
+
+                    <div class="contact-info-list">
+                        <!-- Phone -->
+                        <div class="contact-info-item">
+                            <div class="ci-icon"><i class="fas fa-phone"></i></div>
+                            <div class="ci-content">
+                                <span class="ci-label" data-i18n="con-lbl-phone">Mobile / Call Support</span>
+                                <span class="ci-value">9795371007, 9278371007</span>
+                            </div>
+                        </div>
+
+                        <!-- WhatsApp -->
+                        <div class="contact-info-item">
+                            <div class="ci-icon"><i class="fab fa-whatsapp"></i></div>
+                            <div class="ci-content">
+                                <span class="ci-label" data-i18n="con-lbl-wa">WhatsApp Helpline</span>
+                                <a href="https://wa.me/919795371007" target="_blank" class="ci-value" style="color:var(--color-primary-light);" data-i18n="con-val-wa">
+                                    Click here to Chat on WhatsApp
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Office -->
+                        <div class="contact-info-item">
+                            <div class="ci-icon"><i class="fas fa-building-flag"></i></div>
+                            <div class="ci-content">
+                                <span class="ci-label" data-i18n="con-lbl-off">Office Contact Number</span>
+                                <span class="ci-value">7860671007</span>
+                            </div>
+                        </div>
+
+                        <!-- Location -->
+                        <div class="contact-info-item">
+                            <div class="ci-icon"><i class="fas fa-location-dot"></i></div>
+                            <div class="ci-content">
+                                <span class="ci-label" data-i18n="con-lbl-addr">National Office Address</span>
+                                <span class="ci-value" data-i18n="con-val-addr">Railway Station Road, Sarai Mir, Azamgarh, UP - 276305</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Icons -->
+                    <div>
+                        <span class="ci-label" style="display:block; margin-bottom:0.5rem;" data-i18n="con-lbl-follow">Follow Official Channels</span>
+                        <div class="social-links-grid" style="margin-bottom: 0.5rem;">
+                            <a href="https://www.facebook.com/zctbillionin1" target="_blank" class="social-circle-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-circle-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-circle-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                            <a href="#" class="social-circle-link" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+                        </div>
+                        <span class="obj-desc" style="display: block; font-size: 0.75rem; color: var(--color-primary-light); font-weight: 600;" data-i18n="con-fb-info">
+                            <i class="fab fa-facebook" style="margin-right:0.25rem;"></i> Followed by 2,290+ on Facebook &bull; "We Work For Humanity"
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dynamic Tabbed Forms -->
+            <div class="form-card reveal-right">
+                <div class="form-tabs">
+                    <button class="form-tab-btn active" data-tab="contact" data-i18n="tab-contact">Sandesh (Contact)</button>
+                    <button class="form-tab-btn" data-tab="volunteer" data-i18n="tab-volunteer">Sadasya (Volunteer)</button>
+                    <button class="form-tab-btn" data-tab="donation" data-i18n="tab-donation">Bank Details</button>
+                </div>
+
+                <!-- Tab 1: Contact Form -->
+                <form id="contact-form" class="form-content active">
+                    <div class="form-group">
+                        <input type="text" class="form-input" id="c-name" placeholder=" " required>
+                        <label for="c-name" class="form-label" data-i18n="form-c-name">Aapka Naam (Your Name)</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" class="form-input" id="c-phone" placeholder=" " required>
+                        <label for="c-phone" class="form-label" data-i18n="form-c-phone">Phone/WhatsApp Number</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-input" id="c-msg" placeholder=" " required></textarea>
+                        <label for="c-msg" class="form-label" data-i18n="form-c-msg">Sandesh / Question (Message)</label>
+                    </div>
+                    <button type="submit" class="btn-cta" style="margin-top:0.5rem;" data-i18n="form-c-btn">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
+
+                <!-- Tab 2: Volunteer Form -->
+                <form id="volunteer-form" class="form-content">
+                    <div class="form-group">
+                        <input type="text" class="form-input" id="v-name" placeholder=" " required>
+                        <label for="v-name" class="form-label" data-i18n="form-v-name">Aapka Naam (Full Name)</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" class="form-input" id="v-phone" placeholder=" " required>
+                        <label for="v-phone" class="form-label" data-i18n="form-v-phone">Phone/WhatsApp Number</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-input" id="v-city" placeholder=" " required>
+                        <label for="v-city" class="form-label" data-i18n="form-v-city">City / Village Address</label>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-input" id="v-skill" placeholder=" " required></textarea>
+                        <label for="v-skill" class="form-label" data-i18n="form-v-skill">Aap kis tarah se madad karna chahte hain?</label>
+                    </div>
+                    <button type="submit" class="btn-cta" style="margin-top:0.5rem;" data-i18n="form-v-btn">
+                        <i class="fas fa-user-plus"></i> Register as Volunteer
+                    </button>
+                </form>
+
+                <!-- Tab 3: Donation / Bank Info -->
+                <div id="donation-form" class="form-content">
+                    <p class="obj-desc" style="margin-bottom:1rem;" data-i18n="form-d-desc">
+                        Zoon Charitable Trust ke ahem kshetron mein financial madad pahunchane ke liye aap direct bank transfer ya UPI ka upyog kar sakte hain. Transfer ke baad screenshot zaroor share karein.
+                    </p>
+
+                    <!-- UPI Quick Badge -->
+                    <!-- UPI Details & QR Grid -->
+                    <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 1.5rem; margin-top: 1rem; align-items: center;">
+                        <div class="contact-info-item" style="background:rgba(60, 181, 76, 0.08); border-radius:12px; padding:1.25rem; border: 1px solid var(--border-glow); height:100%; display:flex; flex-direction:column; justify-content:center; gap:0.5rem;">
+                            <div style="display:flex; gap:0.75rem; align-items:center;">
+                                <div class="ci-icon" style="color:var(--color-primary-light); background:rgba(60,181,76,0.15); margin:0;"><i class="fas fa-qrcode"></i></div>
+                                <div>
+                                    <span class="ci-label" data-i18n="form-d-upi-lbl">UPI ID</span>
+                                    <span class="ci-value" style="font-family:var(--font-heading); color:var(--text-primary); font-size:1.1rem; display:block;">zoontrust@upi</span>
+                                </div>
+                            </div>
+                            <p class="obj-desc" style="font-size:0.75rem; margin:0; line-height:1.4;" data-i18n="form-d-upi-desc">
+                                PhonePe, Google Pay, ya Paytm se is ID par direct transfer kar sakte hain. Transfer ke baad screenshot WhatsApp par zaroor share karein.
+                            </p>
+                        </div>
+                        
+                        <!-- 3D QR Code Card -->
+                        <div class="qr-card">
+                            <div class="qr-image-wrapper">
+                                <div class="qr-scanner-line"></div>
+                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=zoontrust@upi%26pn=Zoon%20Charitable%20Trust%26cu=INR" alt="UPI Scan QR Code">
+                            </div>
+                            <span class="qr-label" data-i18n="form-d-qr-lbl"><i class="fas fa-qrcode"></i> Scan to Donate</span>
+                        </div>
+                    </div>
+
+                    <!-- Bank Details Box -->
+                    <div class="bank-details-box">
+                        <div class="bank-details-title" data-i18n="bank-sec-title">
+                            <i class="fas fa-bank"></i> Official Bank Accounts
+                        </div>
+                        <div class="bank-grid">
+                            <div class="bank-info-cell">
+                                <span class="bank-info-label" data-i18n="bank-acc-h">Account Holder</span>
+                                <span class="bank-info-val">Zoon Charitable Trust</span>
+                            </div>
+                            <div class="bank-info-cell">
+                                <span class="bank-info-label" data-i18n="bank-acc-n">Bank Name</span>
+                                <span class="bank-info-val">State Bank of India</span>
+                            </div>
+                            <div class="bank-info-cell">
+                                <span class="bank-info-label" data-i18n="bank-acc-num">Account Number</span>
+                                <span class="bank-info-val">39485728495 (Dummy)</span>
+                            </div>
+                            <div class="bank-info-cell">
+                                <span class="bank-info-label" data-i18n="bank-acc-ifsc">IFSC Code</span>
+                                <span class="bank-info-val">SBIN0001234</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Direct message option linked with calc -->
+                    <form id="calc-direct-donation-form">
+                        <div class="form-group" style="margin-top: 1.5rem;">
+                            <textarea class="form-input" id="d-msg" placeholder=" " required>Zoon Charitable Trust ki educational/healthcare activities mein support karne ka ichhuk hoon. Bank transfer details confirm karne ke liye aage sampark karein.</textarea>
+                            <label for="d-msg" class="form-label" data-i18n="form-d-notes">Donation Notes / Message</label>
+                        </div>
+                        <button type="submit" class="btn-cta" style="margin-top:0.5rem; width:100%; justify-content:center;" data-i18n="form-d-btn">
+                            <i class="fab fa-whatsapp"></i> Confirm Donation Details on WA
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <div class="footer-logo-title">ZOON TRUST</div>
+                <div class="footer-logo-subtitle">Zoon Charitable Trust (Z.C.T)</div>
+                <p data-i18n="foot-desc">
+                    Azamgarh UP ke Sarai Mir se shuru hui yeh koshish aaj rashtriya star par zarooratmand logon ki madad kar rahi hai. Shiksha aur swasthya ko har shakhs tak pahunchana hamara vishwas hai.
+                </p>
+            </div>
+            
+            <div class="footer-column">
+                <h4 class="footer-title" data-i18n="foot-quick">Quick Links</h4>
+                <div class="footer-links">
+                    <a href="#hero"><i class="fas fa-angle-right"></i> Home</a>
+                    <a href="#about"><i class="fas fa-angle-right"></i> HQ Registration</a>
+                    <a href="#pillars"><i class="fas fa-angle-right"></i> Core Sectors</a>
+                    <a href="#objectives"><i class="fas fa-angle-right"></i> 14 Objectives</a>
+                    <a href="#calculator"><i class="fas fa-angle-right"></i> Impact Simulator</a>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h4 class="footer-title" data-i18n="foot-help">Help Links</h4>
+                <div class="footer-links">
+                    <a href="#gallery"><i class="fas fa-angle-right"></i> Campaign Gallery</a>
+                    <a href="#team"><i class="fas fa-angle-right"></i> Executive Board</a>
+                    <a href="#contact"><i class="fas fa-angle-right"></i> Contact Us</a>
+                    <a href="#contact"><i class="fas fa-angle-right"></i> Volunteer Register</a>
+                    <a href="#contact"><i class="fas fa-angle-right"></i> Donation Methods</a>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h4 class="footer-title" data-i18n="foot-hq">HQ Office</h4>
+                <div class="footer-contact-list">
+                    <div class="footer-contact-item">
+                        <i class="fas fa-location-dot"></i>
+                        <span data-i18n="foot-addr">Railway Station Road, Sarai Mir, Azamgarh, Uttar Pradesh, PIN: 276305</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span data-i18n="foot-phone">9795371007, 9278371007</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fas fa-building-flag"></i>
+                        <span data-i18n="foot-off">Office Contact: 7860671007</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div data-i18n="foot-copy">
+                &copy; 2026 Zoon Charitable Trust. All Rights Reserved. Reg No. 04-63-025.
+            </div>
+            <div class="footer-bottom-links">
+                <a href="#" data-i18n="foot-privacy">Privacy Policy</a>
+                <a href="#" data-i18n="foot-terms">Terms of Use</a>
+                <a href="#" data-i18n="foot-audits">HQ Audits</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 3D Lightbox Modal -->
+    <div class="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" aria-label="Close Lightbox">&times;</button>
+            <img src="" alt="Zoomed Activity" class="lightbox-img">
+            <div class="lightbox-caption">Zoomed Activity Detail</div>
+        </div>
+    </div>
+
+    <!-- 3D Channel Selector Modal -->
+    <div class="channel-modal" id="channel-modal">
+        <div class="channel-modal-content" id="channel-modal-content">
+            <h3 class="channel-modal-title" data-i18n="mod-title">Send Message</h3>
+            <p class="channel-modal-desc" data-i18n="mod-desc">Aap apna sandesh kis madhyam se bhejna chahte hain?</p>
+            <div class="channel-btns-grid">
+                <button class="channel-btn btn-channel-whatsapp" id="btn-send-whatsapp" data-i18n="mod-btn-wa">
+                    <i class="fab fa-whatsapp"></i> WhatsApp Direct
+                </button>
+                <button class="channel-btn btn-channel-telegram" id="btn-send-telegram" data-i18n="mod-btn-tg">
+                    <i class="fab fa-telegram"></i> Telegram Chat
+                </button>
+                <button class="channel-btn btn-channel-email" id="btn-send-email" data-i18n="mod-btn-em">
+                    <i class="fas fa-envelope"></i> Email (Mailto)
+                </button>
+            </div>
+            <button class="close-channel-modal" id="btn-close-channel-modal" data-i18n="mod-btn-cancel">Cancel</button>
+        </div>
+    </div>
+
+    <!-- JavaScript File -->
+    <script src="script.js?v=7"></script>
+</body>
+</html>
