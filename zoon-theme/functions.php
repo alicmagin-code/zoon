@@ -45,6 +45,10 @@ function zoon_theme_setup() {
 
     // Enable title tag support
     add_theme_support( 'title-tag' );
+
+    // Custom cropped image sizes for optimization
+    add_image_size( 'zoon-blog-grid', 600, 400, true ); // Grid card thumbnail
+    add_image_size( 'zoon-single-hero', 1200, 600, true ); // Single post full header
 }
 add_action( 'after_setup_theme', 'zoon_theme_setup' );
 
@@ -352,5 +356,182 @@ function zoon_customize_register( $wp_customize ) {
         'section'  => 'zoon_footer_section',
         'type'     => 'text',
     ) );
+
+    // ==========================================
+    // Section: SEO Settings
+    // ==========================================
+    $wp_customize->add_section( 'zoon_seo_section', array(
+        'title'       => esc_html__( 'SEO Settings', 'zoon-theme' ),
+        'description' => esc_html__( 'Manage search engine metadata and social sharing parameters.', 'zoon-theme' ),
+        'priority'    => 90,
+    ) );
+
+    // SEO Meta Description
+    $wp_customize->add_setting( 'zoon_seo_desc', array(
+        'default'           => 'Zoon Charitable Trust Azamgarh (U.P.) - Sewa, Shiksha aur Swasthya Ka Sankalp. A government registered NGO working for social welfare.',
+        'sanitize_callback' => 'sanitize_text_field',
+    ) );
+    $wp_customize->add_control( 'zoon_seo_desc', array(
+        'label'       => esc_html__( 'Global Meta Description', 'zoon-theme' ),
+        'description' => esc_html__( 'Appears in search engine snippets. Fallback for posts/pages without excerpts.', 'zoon-theme' ),
+        'section'     => 'zoon_seo_section',
+        'type'        => 'textarea',
+    ) );
+
+    // SEO Meta Keywords
+    $wp_customize->add_setting( 'zoon_seo_keywords', array(
+        'default'           => 'zoon trust, zoon charitable trust, azamgarh ngo, up ngo, charity, welfare trust, education helper',
+        'sanitize_callback' => 'sanitize_text_field',
+    ) );
+    $wp_customize->add_control( 'zoon_seo_keywords', array(
+        'label'       => esc_html__( 'Global Meta Keywords', 'zoon-theme' ),
+        'description' => esc_html__( 'Comma separated list of keywords describing the trust.', 'zoon-theme' ),
+        'section'     => 'zoon_seo_section',
+        'type'        => 'text',
+    ) );
+
+    // SEO Default Social Share Image
+    $wp_customize->add_setting( 'zoon_seo_og_image', array(
+        'default'           => '',
+        'sanitize_callback' => 'esc_url_raw',
+    ) );
+    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'zoon_seo_og_image', array(
+        'label'       => esc_html__( 'Default Social Image (Open Graph)', 'zoon-theme' ),
+        'description' => esc_html__( 'This image displays when the site homepage is shared on Facebook, WhatsApp, etc.', 'zoon-theme' ),
+        'section'     => 'zoon_seo_section',
+    ) ) );
+
+    // ==========================================
+    // Section: Theme Styling & Colors
+    // ==========================================
+    $wp_customize->add_section( 'zoon_color_section', array(
+        'title'       => esc_html__( 'Theme Colors & Styling', 'zoon-theme' ),
+        'description' => esc_html__( 'Customize the primary and secondary branding accent colors.', 'zoon-theme' ),
+        'priority'    => 100,
+    ) );
+
+    // Primary Color (Green default)
+    $wp_customize->add_setting( 'zoon_color_primary', array(
+        'default'           => '#3cb54c',
+        'sanitize_callback' => 'sanitize_hex_color',
+    ) );
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'zoon_color_primary', array(
+        'label'    => esc_html__( 'Primary Color (Brand Green)', 'zoon-theme' ),
+        'section'  => 'zoon_color_section',
+    ) ) );
+
+    // Primary Light Color
+    $wp_customize->add_setting( 'zoon_color_primary_light', array(
+        'default'           => '#54cc63',
+        'sanitize_callback' => 'sanitize_hex_color',
+    ) );
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'zoon_color_primary_light', array(
+        'label'    => esc_html__( 'Primary Light Color (Glow/Hover)', 'zoon-theme' ),
+        'section'  => 'zoon_color_section',
+    ) ) );
+
+    // Secondary Color (Orange default)
+    $wp_customize->add_setting( 'zoon_color_secondary', array(
+        'default'           => '#f36523',
+        'sanitize_callback' => 'sanitize_hex_color',
+    ) );
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'zoon_color_secondary', array(
+        'label'    => esc_html__( 'Secondary Color (Brand Orange)', 'zoon-theme' ),
+        'section'  => 'zoon_color_section',
+    ) ) );
+
+    // Secondary Light Color
+    $wp_customize->add_setting( 'zoon_color_secondary_light', array(
+        'default'           => '#f58249',
+        'sanitize_callback' => 'sanitize_hex_color',
+    ) );
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'zoon_color_secondary_light', array(
+        'label'    => esc_html__( 'Secondary Light Color (Glow/Hover)', 'zoon-theme' ),
+        'section'  => 'zoon_color_section',
+    ) ) );
 }
 add_action( 'customize_register', 'zoon_customize_register' );
+
+/**
+ * Register Title Visibility metabox on Posts & Pages.
+ */
+function zoon_add_title_visibility_meta_box() {
+    $screens = array( 'post', 'page' );
+    foreach ( $screens as $screen ) {
+        add_meta_box(
+            'zoon_title_visibility_meta',
+            esc_html__( 'Title Visibility Settings', 'zoon-theme' ),
+            'zoon_title_visibility_meta_box_callback',
+            $screen,
+            'side',
+            'default'
+        );
+    }
+}
+add_action( 'add_meta_boxes', 'zoon_add_title_visibility_meta_box' );
+
+/**
+ * Metabox Callback.
+ */
+function zoon_title_visibility_meta_box_callback( $post ) {
+    wp_nonce_field( 'zoon_save_title_visibility_meta', 'zoon_title_visibility_meta_nonce' );
+    $value = get_post_meta( $post->ID, '_zoon_hide_title', true );
+    ?>
+    <p>
+        <label for="zoon_hide_title_field">
+            <input type="checkbox" id="zoon_hide_title_field" name="zoon_hide_title_field" value="yes" <?php checked( $value, 'yes' ); ?> />
+            <strong><?php esc_html_e( 'Hide title on frontend', 'zoon-theme' ); ?></strong>
+        </label>
+    </p>
+    <p class="description">
+        <?php esc_html_e( 'Checking this will hide the title header from rendering on the single post/page view.', 'zoon-theme' ); ?>
+    </p>
+    <?php
+}
+
+/**
+ * Save Metabox Value.
+ */
+function zoon_save_title_visibility_meta( $post_id ) {
+    if ( ! isset( $_POST['zoon_title_visibility_meta_nonce'] ) ) {
+        return;
+    }
+    if ( ! wp_verify_nonce( $_POST['zoon_title_visibility_meta_nonce'], 'zoon_save_title_visibility_meta' ) ) {
+        return;
+    }
+    if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+        return;
+    }
+    if ( ! current_user_can( 'edit_post', $post_id ) ) {
+        return;
+    }
+
+    if ( isset( $_POST['zoon_hide_title_field'] ) && $_POST['zoon_hide_title_field'] === 'yes' ) {
+        update_post_meta( $post_id, '_zoon_hide_title', 'yes' );
+    } else {
+        delete_post_meta( $post_id, '_zoon_hide_title' );
+    }
+}
+add_action( 'save_post', 'zoon_save_title_visibility_meta' );
+
+/**
+ * Performance: Clean WP Header of redundant tags & scripts.
+ */
+function zoon_clean_wp_header() {
+    // Remove RSD link
+    remove_action( 'wp_head', 'rsd_link' );
+    // Remove Windows Live Writer link
+    remove_action( 'wp_head', 'wlwmanifest_link' );
+    // Remove Shortlinks
+    remove_action( 'wp_head', 'wp_shortlink_wp_head', 10 );
+    // Remove WordPress Generator info
+    remove_action( 'wp_head', 'wp_generator' );
+    // Remove DNS Prefetch for emojis
+    remove_filter( 'wp_resource_hints', 'wp_resource_hints_detect_emoji', 10 );
+    // Remove emoji support styles and scripts
+    remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+    remove_action( 'wp_print_styles', 'print_emoji_styles' );
+    remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+    remove_action( 'admin_print_styles', 'print_emoji_styles' );
+}
+add_action( 'init', 'zoon_clean_wp_header' );

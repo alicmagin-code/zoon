@@ -37,7 +37,7 @@ get_header();
                                 <div>
                                     <?php if ( has_post_thumbnail() ) { ?>
                                         <div class="blog-thumbnail" style="border-radius:var(--radius-sm); overflow:hidden; margin-bottom:1rem; aspect-ratio:16/9;">
-                                            <?php the_post_thumbnail('medium_large', array('style' => 'width:100%; height:100%; object-fit:cover;')); ?>
+                                            <?php the_post_thumbnail('zoon-blog-grid', array('style' => 'width:100%; height:100%; object-fit:cover;')); ?>
                                         </div>
                                     <?php } else { ?>
                                         <div class="placeholder-thumbnail" style="margin-bottom:1rem;">

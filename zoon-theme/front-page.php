@@ -5,8 +5,8 @@
  * @package Zoon_Theme
  */
 
-// If visitor explicitly asks for blog or if theme has not been configured with a static home page yet, delegate to index.php
-if ( isset( $_GET['blog'] ) || ( 'posts' === get_option( 'show_on_front' ) && ! is_page() ) ) {
+// If visitor explicitly asks for blog, delegate to index.php
+if ( isset( $_GET['blog'] ) ) {
     include get_query_template( 'index' );
     return;
 }
@@ -153,7 +153,7 @@ if ( empty( $upi_qr ) ) {
             </div>
             <div class="journey-visual reveal-right">
                 <div class="journey-img-wrapper">
-                    <img src="<?php echo esc_url( $journey_img ); ?>" alt="Zoon Trust Dream Universe Map" class="journey-img">
+                    <img src="<?php echo esc_url( $journey_img ); ?>" alt="Zoon Trust Dream Universe Map" class="journey-img" loading="lazy" width="600" height="400">
                     <div class="journey-img-glow"></div>
                 </div>
             </div>
@@ -173,7 +173,7 @@ if ( empty( $upi_qr ) ) {
             <div class="pillar-card-wrapper reveal">
                 <div class="pillar-card">
                     <div class="pillar-img-container">
-                        <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/Activities/awareness-campaign.jpg" alt="ZCT Education Campaign">
+                        <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/Activities/awareness-campaign.jpg" alt="ZCT Education Campaign" loading="lazy" width="400" height="250">
                         <div class="pillar-img-overlay"></div>
                         <div class="pillar-icon-badge">
                             <i class="fas fa-graduation-cap"></i>
@@ -192,12 +192,12 @@ if ( empty( $upi_qr ) ) {
                     </div>
                 </div>
             </div>
-
+ 
             <!-- Healthcare -->
             <div class="pillar-card-wrapper reveal" style="transition-delay: 0.1s;">
                 <div class="pillar-card">
                     <div class="pillar-img-container">
-                        <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/Activities/medical-campaign.jpg" alt="ZCT Medical Camp">
+                        <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/Activities/medical-campaign.jpg" alt="ZCT Medical Camp" loading="lazy" width="400" height="250">
                         <div class="pillar-img-overlay"></div>
                         <div class="pillar-icon-badge">
                             <i class="fas fa-briefcase-medical"></i>
@@ -216,12 +216,12 @@ if ( empty( $upi_qr ) ) {
                     </div>
                 </div>
             </div>
-
+ 
             <!-- Social Welfare -->
             <div class="pillar-card-wrapper reveal" style="transition-delay: 0.2s;">
                 <div class="pillar-card">
                     <div class="pillar-img-container">
-                        <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/Activities/kambal-vitran-samaroh.jpeg" alt="ZCT Blanket Distribution">
+                        <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/Activities/kambal-vitran-samaroh.jpeg" alt="ZCT Blanket Distribution" loading="lazy" width="400" height="250">
                         <div class="pillar-img-overlay"></div>
                         <div class="pillar-icon-badge">
                             <i class="fas fa-hands-holding"></i>
@@ -381,7 +381,7 @@ if ( empty( $upi_qr ) ) {
                         <div>
                             <?php if ( has_post_thumbnail() ) { ?>
                                 <div class="blog-thumbnail" style="border-radius:var(--radius-sm); overflow:hidden; margin-bottom:1rem; aspect-ratio:16/9;">
-                                    <?php the_post_thumbnail('medium_large', array('style' => 'width:100%; height:100%; object-fit:cover;')); ?>
+                                    <?php the_post_thumbnail('zoon-blog-grid', array('style' => 'width:100%; height:100%; object-fit:cover;')); ?>
                                 </div>
                             <?php } ?>
                             <span class="team-member-role" style="display:inline-block; font-size:0.75rem; margin-bottom:0.5rem;"><?php the_category(', '); ?></span>
@@ -459,7 +459,7 @@ if ( empty( $upi_qr ) ) {
             foreach ($gallery_items as $item) {
                 ?>
                 <div class="gallery-item" data-category="<?php echo $item[0]; ?>">
-                    <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/Activities/<?php echo $item[1]; ?>" alt="<?php echo esc_attr($item[2]); ?>">
+                    <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/Activities/<?php echo $item[1]; ?>" alt="<?php echo esc_attr($item[2]); ?>" loading="lazy" width="400" height="300" style="width:100%; height:100%; object-fit:cover;">
                     <div class="gallery-overlay">
                         <span class="gallery-tag"><?php echo esc_html($item[2]); ?></span>
                         <span class="gallery-caption" data-i18n="<?php echo $item[3]; ?>"><?php echo esc_html($item[4]); ?></span>
@@ -483,7 +483,7 @@ if ( empty( $upi_qr ) ) {
             <!-- Focus Card 1 -->
             <div class="leader-focus-card reveal">
                 <div class="leader-img-wrapper">
-                    <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/National%20Team/Raj%20Bahadur%20Yadav%20(National%20President).jpeg" alt="Raj Bahadur">
+                    <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/National%20Team/Raj%20Bahadur%20Yadav%20(National%20President).jpeg" alt="Raj Bahadur" loading="lazy" width="300" height="300">
                     <span class="leader-badge" data-i18n="lead1-badge">National Executive</span>
                 </div>
                 <div class="leader-info">
@@ -509,7 +509,7 @@ if ( empty( $upi_qr ) ) {
             <!-- Focus Card 2 -->
             <div class="leader-focus-card reveal">
                 <div class="leader-img-wrapper">
-                    <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/National%20Team/Noorulain%20Firozy%20(National%20Secretary%20and%20Treasurer.jpeg" alt="Noorulain Firozy">
+                    <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/National%20Team/Noorulain%20Firozy%20(National%20Secretary%20and%20Treasurer.jpeg" alt="Noorulain Firozy" loading="lazy" width="300" height="300">
                     <span class="leader-badge" data-i18n="lead2-badge">National Executive</span>
                 </div>
                 <div class="leader-info">
@@ -569,7 +569,7 @@ if ( empty( $upi_qr ) ) {
                                 <span data-i18n="cert-pending">Appointment Card Pending</span>
                             </div>
                         <?php } else { ?>
-                            <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/National%20Team/<?php echo $m[1]; ?>" alt="<?php echo esc_attr($m[2]); ?>" class="team-member-img">
+                            <img src="<?php echo esc_url( get_template_directory_uri() ); ?>/National%20Team/<?php echo $m[1]; ?>" alt="<?php echo esc_attr($m[2]); ?>" class="team-member-img" loading="lazy" width="200" height="200">
                         <?php } ?>
                         <span class="team-member-name" data-i18n="team-<?php echo $m[0]; ?>-name"><?php echo $m[2]; ?></span>
                         <span class="team-member-role" data-i18n="team-<?php echo $m[0]; ?>-role"><?php echo $m[3]; ?></span>

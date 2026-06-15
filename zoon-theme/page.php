@@ -26,9 +26,16 @@ get_header();
                     <article id="post-<?php the_ID(); ?>" <?php post_class( 'card-outer' ); ?> style="border:1px solid var(--border-glow); border-radius:var(--radius-lg); padding:3rem; background:var(--bg-card); box-shadow:var(--shadow-lg);">
                         
                         <!-- Page Title -->
-                        <h1 class="hero-title" style="font-size: clamp(1.8rem, 3.5vw, 2.8rem); line-height:1.2; margin-bottom:2rem; color:var(--text-primary); border-bottom:1px solid var(--border-color); padding-bottom:1rem;">
-                            <?php the_title(); ?>
-                        </h1>
+                        <?php 
+                        $hide_title = get_post_meta( get_the_ID(), '_zoon_hide_title', true );
+                        if ( 'yes' !== $hide_title ) :
+                            ?>
+                            <h1 class="hero-title" style="font-size: clamp(1.8rem, 3.5vw, 2.8rem); line-height:1.2; margin-bottom:2rem; color:var(--text-primary); border-bottom:1px solid var(--border-color); padding-bottom:1rem;">
+                                <?php the_title(); ?>
+                            </h1>
+                            <?php
+                        endif;
+                        ?>
 
                         <!-- Featured Image -->
                         <?php if ( has_post_thumbnail() ) : ?>

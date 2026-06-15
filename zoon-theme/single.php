@@ -28,9 +28,16 @@ get_header();
                         </div>
 
                         <!-- Post Title -->
-                        <h1 class="hero-title" style="font-size: clamp(1.8rem, 3.5vw, 2.8rem); line-height:1.2; margin-bottom:1.5rem; color:var(--text-primary);">
-                            <?php the_title(); ?>
-                        </h1>
+                        <?php 
+                        $hide_title = get_post_meta( get_the_ID(), '_zoon_hide_title', true );
+                        if ( 'yes' !== $hide_title ) :
+                            ?>
+                            <h1 class="hero-title" style="font-size: clamp(1.8rem, 3.5vw, 2.8rem); line-height:1.2; margin-bottom:1.5rem; color:var(--text-primary);">
+                                <?php the_title(); ?>
+                            </h1>
+                            <?php
+                        endif;
+                        ?>
 
                         <!-- Author Card Info -->
                         <div class="author-meta-row" style="display:flex; align-items:center; gap:0.75rem; margin-bottom:2.5rem; border-bottom:1px solid var(--border-color); padding-bottom:1.5rem;">
@@ -46,7 +53,7 @@ get_header();
                         <!-- Featured Image -->
                         <?php if ( has_post_thumbnail() ) : ?>
                             <div class="post-featured-image" style="border-radius:var(--radius-md); overflow:hidden; margin-bottom:2.5rem; box-shadow:var(--shadow-md); border:1px solid var(--border-color);">
-                                <?php the_post_thumbnail( 'large', array( 'style' => 'width:100%; height:auto; display:block;' ) ); ?>
+                                <?php the_post_thumbnail( 'zoon-single-hero', array( 'style' => 'width:100%; height:auto; display:block;' ) ); ?>
                             </div>
                         <?php endif; ?>
 
