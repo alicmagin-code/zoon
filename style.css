@@ -2239,6 +2239,14 @@ body.light-theme .footer-links a {
     margin-top: 0.25rem;
 }
 
+.footer-contact-item a {
+    transition: color var(--transition-fast);
+}
+
+.footer-contact-item a:hover {
+    color: var(--color-primary-light);
+}
+
 .footer-bottom {
     max-width: 1250px;
     margin: 4rem auto 0 auto;
