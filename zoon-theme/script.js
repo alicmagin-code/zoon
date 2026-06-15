@@ -228,15 +228,48 @@ function initMobileNav() {
             hamburger.classList.toggle('active');
             nav.classList.toggle('active');
         });
-
-        // Close Menu when link is clicked
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                nav.classList.remove('active');
-            });
-        });
     }
+
+    // Intercept clicks on menu links to handle home page scrolling and subpages
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const href = link.getAttribute('href');
+            if (!href) return;
+
+            // Close mobile menu on any link click
+            if (hamburger) hamburger.classList.remove('active');
+            if (nav) nav.classList.remove('active');
+
+            // Check if it's an anchor link (contains '#')
+            const hashIndex = href.indexOf('#');
+            if (hashIndex !== -1) {
+                const hash = href.substring(hashIndex); // e.g. '#about'
+                
+                try {
+                    const targetElement = document.querySelector(hash);
+                    if (targetElement) {
+                        // Element exists on the current page, so we scroll to it smoothly!
+                        e.preventDefault();
+
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+
+                        // Update active class immediately on click
+                        navLinks.forEach(l => l.classList.remove('active'));
+                        link.classList.add('active');
+
+                        // Update URL hash without page reload
+                        history.pushState(null, null, hash);
+                    }
+                } catch (err) {
+                    // In case the hash is invalid or is not a query selector (e.g. '#')
+                    console.log('Smooth scroll error: ', err);
+                }
+            }
+        });
+    });
 
     // Scroll active link highlight
     const sections = document.querySelectorAll('section');
@@ -252,11 +285,31 @@ function initMobileNav() {
 
         navLinks.forEach(link => {
             link.classList.remove('active');
-            if (link.getAttribute('href') === `#${current}`) {
+            const href = link.getAttribute('href') || '';
+            if (href === `#${current}` || href.endsWith(`/#${current}`) || href.endsWith(`#${current}`)) {
                 link.classList.add('active');
             }
         });
     });
+
+    // Scroll smoothly to hash on page load if hash exists
+    if (window.location.hash) {
+        const hash = window.location.hash;
+        try {
+            const target = document.querySelector(hash);
+            if (target) {
+                // Wait for components to initialize, then scroll smoothly
+                setTimeout(() => {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }, 400);
+            }
+        } catch (err) {
+            console.log('Onload hash scroll error: ', err);
+        }
+    }
 }
 
 /* ==========================================================================

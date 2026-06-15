@@ -495,7 +495,23 @@ nav {
     align-items: center;
 }
 
-.nav-links a {
+/* Dynamic WordPress Menu structure styling */
+.nav-links ul {
+    display: flex;
+    gap: 1.75rem;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a, .nav-links ul li a {
     font-size: 0.9rem;
     font-weight: 600;
     color: var(--text-secondary);
@@ -503,11 +519,13 @@ nav {
     padding: 0.5rem 0;
 }
 
-.nav-links a:hover, .nav-links a.active {
+.nav-links a:hover, .nav-links a.active, 
+.nav-links ul li a:hover, .nav-links ul li a.active, 
+.nav-links ul li.current-menu-item > a {
     color: var(--color-primary-light);
 }
 
-.nav-links a::after {
+.nav-links a::after, .nav-links ul li a::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -519,7 +537,9 @@ nav {
     transition: width var(--transition-normal);
 }
 
-.nav-links a:hover::after, .nav-links a.active::after {
+.nav-links a:hover::after, .nav-links a.active::after, 
+.nav-links ul li a:hover::after, .nav-links ul li a.active::after, 
+.nav-links ul li.current-menu-item > a::after {
     width: 100%;
 }
 
@@ -2546,14 +2566,18 @@ body.light-theme .footer-bottom {
         right: 0;
     }
     
-    .nav-links {
+    .nav-links, .nav-links ul {
         flex-direction: column;
         align-items: flex-start;
         width: 100%;
         gap: 1.5rem;
     }
     
-    .nav-links a {
+    .nav-links li {
+        width: 100%;
+    }
+    
+    .nav-links a, .nav-links ul li a {
         font-size: 1.1rem;
         width: 100%;
     }
