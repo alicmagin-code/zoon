@@ -12,13 +12,27 @@
 
             <div class="footer-column">
                 <h4 class="footer-title" data-i18n="foot-quick">Quick Links</h4>
-                <div class="footer-links">
-                    <a href="<?php echo is_front_page() ? '#hero' : esc_url( home_url( '/#hero' ) ); ?>"><i class="fas fa-angle-right"></i> Home</a>
-                    <a href="<?php echo is_front_page() ? '#about' : esc_url( home_url( '/#about' ) ); ?>"><i class="fas fa-angle-right"></i> HQ Registration</a>
-                    <a href="<?php echo is_front_page() ? '#pillars' : esc_url( home_url( '/#pillars' ) ); ?>"><i class="fas fa-angle-right"></i> Core Sectors</a>
-                    <a href="<?php echo is_front_page() ? '#objectives' : esc_url( home_url( '/#objectives' ) ); ?>"><i class="fas fa-angle-right"></i> 14 Objectives</a>
-                    <a href="<?php echo is_front_page() ? '#calculator' : esc_url( home_url( '/#calculator' ) ); ?>"><i class="fas fa-angle-right"></i> Impact Simulator</a>
-                </div>
+                <?php 
+                if ( has_nav_menu( 'footer' ) ) {
+                    wp_nav_menu( array(
+                        'theme_location' => 'footer',
+                        'container'      => 'div',
+                        'container_class'=> 'footer-links',
+                        'fallback_cb'    => false,
+                        'depth'          => 1,
+                    ) );
+                } else {
+                    ?>
+                    <div class="footer-links">
+                        <a href="<?php echo is_front_page() ? '#hero' : esc_url( home_url( '/#hero' ) ); ?>"><i class="fas fa-angle-right"></i> Home</a>
+                        <a href="<?php echo is_front_page() ? '#about' : esc_url( home_url( '/#about' ) ); ?>"><i class="fas fa-angle-right"></i> HQ Registration</a>
+                        <a href="<?php echo is_front_page() ? '#pillars' : esc_url( home_url( '/#pillars' ) ); ?>"><i class="fas fa-angle-right"></i> Core Sectors</a>
+                        <a href="<?php echo is_front_page() ? '#objectives' : esc_url( home_url( '/#objectives' ) ); ?>"><i class="fas fa-angle-right"></i> 14 Objectives</a>
+                        <a href="<?php echo is_front_page() ? '#calculator' : esc_url( home_url( '/#calculator' ) ); ?>"><i class="fas fa-angle-right"></i> Impact Simulator</a>
+                    </div>
+                    <?php
+                }
+                ?>
             </div>
 
             <div class="footer-column">
@@ -37,11 +51,11 @@
                 <div class="footer-contact-list">
                     <div class="footer-contact-item">
                         <i class="fas fa-location-dot"></i>
-                        <span data-i18n="foot-addr"><?php echo esc_html( get_theme_mod( 'zoon_address', 'Railway Station Road, Sarai Mir, Azamgarh, Uttar Pradesh, PIN: 276305' ) ); ?></span>
+                        <span><?php echo esc_html( get_theme_mod( 'zoon_address', 'Railway Station Road, Sarai Mir, Azamgarh, Uttar Pradesh, PIN: 276305' ) ); ?></span>
                     </div>
                     <div class="footer-contact-item">
                         <i class="fas fa-phone"></i>
-                        <span data-i18n="foot-phone"><?php 
+                        <span><?php 
                             $p1 = get_theme_mod( 'zoon_phone_1', '9795371007' );
                             $p2 = get_theme_mod( 'zoon_phone_2', '9278371007' );
                             echo esc_html( "$p1, $p2" ); 
@@ -49,7 +63,7 @@
                     </div>
                     <div class="footer-contact-item">
                         <i class="fas fa-building-flag"></i>
-                        <span data-i18n="foot-off">Office Contact: <?php echo esc_html( get_theme_mod( 'zoon_phone_office', '7860671007' ) ); ?></span>
+                        <span>Office Contact: <?php echo esc_html( get_theme_mod( 'zoon_phone_office', '7860671007' ) ); ?></span>
                     </div>
                     <div class="footer-contact-item">
                         <i class="fas fa-envelope"></i>
@@ -61,7 +75,7 @@
         </div>
 
         <div class="footer-bottom">
-            <div data-i18n="foot-copy">
+            <div>
                 <?php echo wp_kses_post( get_theme_mod( 'zoon_footer_copy', '&copy; 2026 Zoon Charitable Trust. All Rights Reserved. Reg No. 04-63-025.' ) ); ?>
             </div>
             <div class="footer-bottom-links">

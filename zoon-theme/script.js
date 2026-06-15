@@ -72,6 +72,34 @@ function initLanguage() {
 
     if (!langBtn || !langDropdown) return;
 
+    // Parse customizer translations JSON and merge/fallback into window.translations
+    const customTranslationsEl = document.getElementById('zoon-custom-translations');
+    if (customTranslationsEl) {
+        try {
+            const customTranslations = JSON.parse(customTranslationsEl.textContent);
+            const romanCustom = customTranslations['roman'] || {};
+
+            for (const lang in window.translations) {
+                const langCustom = customTranslations[lang] || {};
+                for (const key in window.translations[lang]) {
+                    // 1. If language-specific customizer input is set, overwrite JS translation
+                    if (langCustom[key] && langCustom[key].trim() !== '') {
+                        window.translations[lang][key] = langCustom[key];
+                    } 
+                    // 2. Fallback: if language field is blank, but Roman default is customized, use Roman
+                    else if (romanCustom[key] && romanCustom[key].trim() !== '') {
+                        const originalRomanDefault = window.translations['roman'] ? window.translations['roman'][key] : '';
+                        if (romanCustom[key] !== originalRomanDefault) {
+                            window.translations[lang][key] = romanCustom[key];
+                        }
+                    }
+                }
+            }
+        } catch (e) {
+            console.error('Error merging customizer translations:', e);
+        }
+    }
+
     const langLabelMap = {
         roman: 'Roman',
         hindi: 'हिन्दी',

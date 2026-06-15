@@ -202,9 +202,21 @@
 
         <nav>
             <?php 
-            if ( has_nav_menu( 'primary' ) ) {
+            $has_primary = has_nav_menu( 'primary' );
+            $menus = wp_get_nav_menus();
+            
+            if ( $has_primary ) {
                 wp_nav_menu( array(
                     'theme_location' => 'primary',
+                    'container'      => 'div',
+                    'container_class'=> 'nav-links',
+                    'fallback_cb'    => false,
+                    'depth'          => 1,
+                ) );
+            } elseif ( ! empty( $menus ) ) {
+                // Auto-fallback: use the first menu registered in the DB
+                wp_nav_menu( array(
+                    'menu'           => $menus[0]->term_id,
                     'container'      => 'div',
                     'container_class'=> 'nav-links',
                     'fallback_cb'    => false,

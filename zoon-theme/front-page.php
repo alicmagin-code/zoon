@@ -55,10 +55,10 @@ if ( empty( $upi_qr ) ) {
                 <div class="hero-tag" data-i18n="hero-tag">
                     <i class="fas fa-shield-halved"></i> Govt. Registered NGO (Reg: 04-63-025)
                 </div>
-                <h1 class="hero-title" data-i18n="hero-title">
+                <h1 class="hero-title">
                     <?php echo wp_kses_post( $hero_title ); ?>
                 </h1>
-                <p class="hero-description" data-i18n="hero-desc">
+                <p class="hero-description">
                     <?php echo esc_html( $hero_desc ); ?>
                 </p>
                 <div class="hero-btns">
@@ -103,13 +103,13 @@ if ( empty( $upi_qr ) ) {
                     <span data-i18n="seal-lbl">GOVT REG</span>
                 </div>
                 <div class="trust-info">
-                    <div class="trust-reg-num" data-i18n="reg-num">
+                    <div class="trust-reg-num">
                         <?php echo esc_html( $reg_num ); ?>
                         <span class="badge" data-i18n="reg-badge">Official Trust</span>
                     </div>
-                    <div class="trust-office-hq" data-i18n="hq-addr">
+                    <div class="trust-office-hq">
                         <i class="fas fa-location-dot"></i>
-                        National Office: <?php echo esc_html( $address ); ?>
+                        <span data-i18n="banner-nat-off">National Office:</span> <?php echo esc_html( $address ); ?>
                     </div>
                 </div>
             </div>
@@ -130,8 +130,8 @@ if ( empty( $upi_qr ) ) {
             <div class="journey-content reveal-left">
                 <span class="section-subtitle" data-i18n="journey-sub">Hamara Safar</span>
                 <h2 class="section-title" data-i18n="journey-title">Our <span class="accent">Journey</span></h2>
-                <h4 class="journey-milestone" data-i18n="journey-subtitle"><?php echo esc_html( $journey_milestone ); ?></h4>
-                <p class="section-desc" data-i18n="journey-desc">
+                <h4 class="journey-milestone"><?php echo esc_html( $journey_milestone ); ?></h4>
+                <p class="section-desc">
                     <?php echo esc_html( $journey_desc ); ?>
                 </p>
                 <div class="journey-stats-grid">

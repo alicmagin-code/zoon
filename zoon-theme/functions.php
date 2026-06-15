@@ -19,9 +19,11 @@ function zoon_theme_setup() {
     // Enable support for Post Thumbnails on posts and pages.
     add_theme_support( 'post-thumbnails' );
 
-    // Register primary navigation menu.
+    // Register navigation menus.
     register_nav_menus( array(
         'primary' => esc_html__( 'Primary Menu', 'zoon-theme' ),
+        'footer'  => esc_html__( 'Footer Menu', 'zoon-theme' ),
+        'social'  => esc_html__( 'Social Links Menu', 'zoon-theme' ),
     ) );
 
     // Switch default core markup for search form, comment form, etc. to HTML5.
@@ -439,18 +441,250 @@ function zoon_customize_register( $wp_customize ) {
         'label'    => esc_html__( 'Secondary Color (Brand Orange)', 'zoon-theme' ),
         'section'  => 'zoon_color_section',
     ) ) );
-
-    // Secondary Light Color
-    $wp_customize->add_setting( 'zoon_color_secondary_light', array(
-        'default'           => '#f58249',
-        'sanitize_callback' => 'sanitize_hex_color',
-    ) );
     $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'zoon_color_secondary_light', array(
         'label'    => esc_html__( 'Secondary Light Color (Glow/Hover)', 'zoon-theme' ),
         'section'  => 'zoon_color_section',
     ) ) );
+
+    // ==========================================
+    // Translation Settings (Hinglish/Roman defaults to standard customizer settings)
+    // ==========================================
+    
+    // Hero Title Translations
+    foreach ( array( 'hindi' => 'Hindi', 'english' => 'English', 'marathi' => 'Marathi' ) as $lang_key => $lang_label ) {
+        $wp_customize->add_setting( "zoon_hero_title_{$lang_key}", array(
+            'default'           => '',
+            'sanitize_callback' => 'sanitize_text_field',
+        ) );
+        $wp_customize->add_control( "zoon_hero_title_{$lang_key}", array(
+            'label'    => sprintf( esc_html__( 'Hero Title (%s)', 'zoon-theme' ), $lang_label ),
+            'section'  => 'zoon_hero_section',
+            'type'     => 'text',
+        ) );
+    }
+
+    // Hero Description Translations
+    foreach ( array( 'hindi' => 'Hindi', 'english' => 'English', 'marathi' => 'Marathi' ) as $lang_key => $lang_label ) {
+        $wp_customize->add_setting( "zoon_hero_desc_{$lang_key}", array(
+            'default'           => '',
+            'sanitize_callback' => 'sanitize_text_field',
+        ) );
+        $wp_customize->add_control( "zoon_hero_desc_{$lang_key}", array(
+            'label'    => sprintf( esc_html__( 'Hero Description (%s)', 'zoon-theme' ), $lang_label ),
+            'section'  => 'zoon_hero_section',
+            'type'     => 'textarea',
+        ) );
+    }
+
+    // Journey Milestone Translations
+    foreach ( array( 'hindi' => 'Hindi', 'english' => 'English', 'marathi' => 'Marathi' ) as $lang_key => $lang_label ) {
+        $wp_customize->add_setting( "zoon_journey_milestone_{$lang_key}", array(
+            'default'           => '',
+            'sanitize_callback' => 'sanitize_text_field',
+        ) );
+        $wp_customize->add_control( "zoon_journey_milestone_{$lang_key}", array(
+            'label'    => sprintf( esc_html__( 'Journey Milestone (%s)', 'zoon-theme' ), $lang_label ),
+            'section'  => 'zoon_journey_section',
+            'type'     => 'text',
+        ) );
+    }
+
+    // Journey Description Translations
+    foreach ( array( 'hindi' => 'Hindi', 'english' => 'English', 'marathi' => 'Marathi' ) as $lang_key => $lang_label ) {
+        $wp_customize->add_setting( "zoon_journey_desc_{$lang_key}", array(
+            'default'           => '',
+            'sanitize_callback' => 'sanitize_text_field',
+        ) );
+        $wp_customize->add_control( "zoon_journey_desc_{$lang_key}", array(
+            'label'    => sprintf( esc_html__( 'Journey Description (%s)', 'zoon-theme' ), $lang_label ),
+            'section'  => 'zoon_journey_section',
+            'type'     => 'textarea',
+        ) );
+    }
+
+    // Address Translations
+    foreach ( array( 'hindi' => 'Hindi', 'english' => 'English', 'marathi' => 'Marathi' ) as $lang_key => $lang_label ) {
+        $wp_customize->add_setting( "zoon_address_{$lang_key}", array(
+            'default'           => '',
+            'sanitize_callback' => 'sanitize_text_field',
+        ) );
+        $wp_customize->add_control( "zoon_address_{$lang_key}", array(
+            'label'    => sprintf( esc_html__( 'Address (%s)', 'zoon-theme' ), $lang_label ),
+            'section'  => 'zoon_contact_section',
+            'type'     => 'textarea',
+        ) );
+    }
+
+    // Copyright Translations
+    foreach ( array( 'hindi' => 'Hindi', 'english' => 'English', 'marathi' => 'Marathi' ) as $lang_key => $lang_label ) {
+        $wp_customize->add_setting( "zoon_footer_copy_{$lang_key}", array(
+            'default'           => '',
+            'sanitize_callback' => 'wp_kses_post',
+        ) );
+        $wp_customize->add_control( "zoon_footer_copy_{$lang_key}", array(
+            'label'    => sprintf( esc_html__( 'Copyright Text (%s)', 'zoon-theme' ), $lang_label ),
+            'section'  => 'zoon_footer_section',
+            'type'     => 'text',
+        ) );
+    }
 }
 add_action( 'customize_register', 'zoon_customize_register' );
+
+/**
+ * Automaticaly generate Main Menu, Footer Menu, and Social links on theme switch.
+ */
+function zoon_theme_auto_create_menus() {
+    // 1. Primary / Main Menu
+    $primary_menu_name = 'Main Menu';
+    $primary_menu_exists = wp_get_nav_menu_object( $primary_menu_name );
+
+    if ( ! $primary_menu_exists ) {
+        $primary_menu_id = wp_create_nav_menu( $primary_menu_name );
+        
+        if ( ! is_wp_error( $primary_menu_id ) ) {
+            $items = array(
+                array( 'title' => 'Home', 'url' => '/#hero' ),
+                array( 'title' => 'Reg & Info', 'url' => '/#about' ),
+                array( 'title' => 'Sectors', 'url' => '/#pillars' ),
+                array( 'title' => 'Objectives', 'url' => '/#objectives' ),
+                array( 'title' => 'Impact', 'url' => '/#calculator' ),
+                array( 'title' => 'Activities', 'url' => '/#gallery' ),
+                array( 'title' => 'Team', 'url' => '/#team' ),
+                array( 'title' => 'Contact', 'url' => '/#contact' ),
+                array( 'title' => 'Blog Feed', 'url' => '/?blog=1' ),
+            );
+
+            foreach ( $items as $item ) {
+                wp_update_nav_menu_item( $primary_menu_id, 0, array(
+                    'menu-item-title'   =>  $item['title'],
+                    'menu-item-url'     => home_url( $item['url'] ),
+                    'menu-item-status'  => 'publish',
+                    'menu-item-type'    => 'custom',
+                ) );
+            }
+
+            $locations = get_theme_mod( 'nav_menu_locations' );
+            if ( ! is_array( $locations ) ) {
+                $locations = array();
+            }
+            $locations['primary'] = $primary_menu_id;
+            set_theme_mod( 'nav_menu_locations', $locations );
+        }
+    }
+
+    // 2. Footer Menu
+    $footer_menu_name = 'Footer Menu';
+    $footer_menu_exists = wp_get_nav_menu_object( $footer_menu_name );
+
+    if ( ! $footer_menu_exists ) {
+        $footer_menu_id = wp_create_nav_menu( $footer_menu_name );
+
+        if ( ! is_wp_error( $footer_menu_id ) ) {
+            $items = array(
+                array( 'title' => 'Home', 'url' => '/#hero' ),
+                array( 'title' => 'HQ Registration', 'url' => '/#about' ),
+                array( 'title' => 'Core Sectors', 'url' => '/#pillars' ),
+                array( 'title' => '14 Objectives', 'url' => '/#objectives' ),
+                array( 'title' => 'Impact Simulator', 'url' => '/#calculator' ),
+                array( 'title' => 'Campaign Gallery', 'url' => '/#gallery' ),
+                array( 'title' => 'Executive Board', 'url' => '/#team' ),
+                array( 'title' => 'Contact Us', 'url' => '/#contact' ),
+            );
+
+            foreach ( $items as $item ) {
+                wp_update_nav_menu_item( $footer_menu_id, 0, array(
+                    'menu-item-title'   =>  $item['title'],
+                    'menu-item-url'     => home_url( $item['url'] ),
+                    'menu-item-status'  => 'publish',
+                    'menu-item-type'    => 'custom',
+                ) );
+            }
+
+            $locations = get_theme_mod( 'nav_menu_locations' );
+            if ( ! is_array( $locations ) ) {
+                $locations = array();
+            }
+            $locations['footer'] = $footer_menu_id;
+            set_theme_mod( 'nav_menu_locations', $locations );
+        }
+    }
+
+    // 3. Social Menu
+    $social_menu_name = 'Social Links Menu';
+    $social_menu_exists = wp_get_nav_menu_object( $social_menu_name );
+
+    if ( ! $social_menu_exists ) {
+        $social_menu_id = wp_create_nav_menu( $social_menu_name );
+
+        if ( ! is_wp_error( $social_menu_id ) ) {
+            $items = array(
+                array( 'title' => 'Facebook', 'url' => 'https://www.facebook.com/zctbillionin1' ),
+                array( 'title' => 'WhatsApp', 'url' => 'https://wa.me/919795371007' ),
+                array( 'title' => 'Email', 'url' => 'mailto:zooncharitabletrust@gmail.com' ),
+            );
+
+            foreach ( $items as $item ) {
+                wp_update_nav_menu_item( $social_menu_id, 0, array(
+                    'menu-item-title'   =>  $item['title'],
+                    'menu-item-url'     => $item['url'],
+                    'menu-item-status'  => 'publish',
+                    'menu-item-type'    => 'custom',
+                ) );
+            }
+
+            $locations = get_theme_mod( 'nav_menu_locations' );
+            if ( ! is_array( $locations ) ) {
+                $locations = array();
+            }
+            $locations['social'] = $social_menu_id;
+            set_theme_mod( 'nav_menu_locations', $locations );
+        }
+    }
+}
+add_action( 'after_switch_theme', 'zoon_theme_auto_create_menus' );
+
+/**
+ * Output Customizer translation variables as json in footer to sync client language switchers.
+ */
+function zoon_output_custom_translations_json() {
+    $data = array(
+        'roman' => array(
+            'hero-title'       => get_theme_mod( 'zoon_hero_title', 'Sewa, Shiksha aur Swasthya Ka Sankalp' ),
+            'hero-desc'        => get_theme_mod( 'zoon_hero_desc', 'Zoon Charitable Trust (Z.C.T) Azamgarh (U.P.) ke zariye samaj ke sabhi yateem, besahara, aur zarooratmand bhai-behnoko unki buniyadi zarooraten aur behtar mustaqbil (future) dene ki ek choti si koshish.' ),
+            'reg-num'          => get_theme_mod( 'zoon_reg_num', 'ZCT Reg: 04-63-025' ),
+            'journey-subtitle' => get_theme_mod( 'zoon_journey_milestone', '5 Members to 7 States' ),
+            'journey-desc'     => get_theme_mod( 'zoon_journey_desc', 'Ye safar hum 5 logon ne milkar shuru kiya tha. Is samay hum lagbhag 07 rajyon mein kaam kar rahe hain. Har zarooratmand ka sapna saakaar hoga aur samaj kalyan ke saath hi ek naye samaj ka nirman bhi hoga.' ),
+            'foot-addr'        => get_theme_mod( 'zoon_address', 'Railway Station Road, Sarai Mir, Azamgarh, Uttar Pradesh, PIN: 276305' ),
+            'foot-copy'        => get_theme_mod( 'zoon_footer_copy', '&copy; 2026 Zoon Charitable Trust. All Rights Reserved. Reg No. 04-63-025.' ),
+        ),
+        'hindi' => array(
+            'hero-title'       => get_theme_mod( 'zoon_hero_title_hindi', '' ),
+            'hero-desc'        => get_theme_mod( 'zoon_hero_desc_hindi', '' ),
+            'journey-subtitle' => get_theme_mod( 'zoon_journey_milestone_hindi', '' ),
+            'journey-desc'     => get_theme_mod( 'zoon_journey_desc_hindi', '' ),
+            'foot-addr'        => get_theme_mod( 'zoon_address_hindi', '' ),
+            'foot-copy'        => get_theme_mod( 'zoon_footer_copy_hindi', '' ),
+        ),
+        'english' => array(
+            'hero-title'       => get_theme_mod( 'zoon_hero_title_english', '' ),
+            'hero-desc'        => get_theme_mod( 'zoon_hero_desc_english', '' ),
+            'journey-subtitle' => get_theme_mod( 'zoon_journey_milestone_english', '' ),
+            'journey-desc'     => get_theme_mod( 'zoon_journey_desc_english', '' ),
+            'foot-addr'        => get_theme_mod( 'zoon_address_english', '' ),
+            'foot-copy'        => get_theme_mod( 'zoon_footer_copy_english', '' ),
+        ),
+        'marathi' => array(
+            'hero-title'       => get_theme_mod( 'zoon_hero_title_marathi', '' ),
+            'hero-desc'        => get_theme_mod( 'zoon_hero_desc_marathi', '' ),
+            'journey-subtitle' => get_theme_mod( 'zoon_journey_milestone_marathi', '' ),
+            'journey-desc'     => get_theme_mod( 'zoon_journey_desc_marathi', '' ),
+            'foot-addr'        => get_theme_mod( 'zoon_address_marathi', '' ),
+            'foot-copy'        => get_theme_mod( 'zoon_footer_copy_marathi', '' ),
+        ),
+    );
+    echo "\n" . '<script id="zoon-custom-translations" type="application/json">' . json_encode( $data ) . '</script>' . "\n";
+}
+add_action( 'wp_footer', 'zoon_output_custom_translations_json' );
 
 /**
  * Register Title Visibility metabox on Posts & Pages.
